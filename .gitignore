@@ -1,0 +1,175 @@
+# =====================================================================
+# FlotIA - Git Ignore Configuration
+# =====================================================================
+
+# ===== Sistema Operativo =====
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# ===== IDEs y Editores =====
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# ===== SQL Server =====
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.trn
+*.log
+
+# SQL Server Reporting Services
+*.rptproj.user
+
+# ===== MongoDB =====
+# MongoDB data files
+data/
+dump/
+*.lock
+
+# MongoDB logs
+mongod.log
+*.log
+
+# ===== Node.js (si se usa para scripts) =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===== Python (si se usa para scripts) =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# ===== Archivos Temporales =====
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ===== Archivos de Backup =====
+*.bak
+*.backup
+*.old
+*.orig
+
+# ===== Archivos de Configuración Local =====
+# Configuraciones locales de conexión
+config.local.json
+.env
+.env.local
+.env.*.local
+
+# Credenciales
+credentials.json
+secrets.json
+*.key
+*.pem
+
+# ===== Documentos Temporales =====
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# ===== Archivos Grandes =====
+# Videos de evidencia (subir a Google Drive/YouTube)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+
+# Archivos de gran tamaño
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# ===== Archivos Generados =====
+# Reportes generados automáticamente
+reportes_generados/
+exports/
+output/
+
+# ===== Excepciones (archivos que SÍ se deben incluir) =====
+# Diagramas e imágenes importantes
+!diagramas/*.png
+!diagramas/*.jpg
+!diagramas/*.pdf
+!docs/evidencias/*.png
+!docs/evidencias/*.jpg
+
+# Scripts importantes
+!sql/*.sql
+!nosql/*.js
+
+# Documentación
+!docs/*.docx
+!docs/*.pdf
+!*.md
+
+# ===== Carpetas Específicas del Proyecto =====
+# Carpeta de pruebas locales
+test_local/
+pruebas_personales/
+
+# Carpeta de datos sensibles
+datos_reales/
+produccion/
+
+# ===== Otros =====
+# Archivos de sistema
+*.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+*.cache
