@@ -1,18 +1,17 @@
 // =====================================================================
 // PROYECTO: FlotIA - Gestión Inteligente de Flotas
 // STARTUP: KunturData
-// MODELO: No Relacional (MongoDB)
+// MODELO: No Relacional 
 // =====================================================================
 
-// Conectar a MongoDB y seleccionar base de datos
 use flotia_nosql
 
 // =====================================================================
-// 1️⃣ CREACIÓN DE COLECCIONES CON VALIDACIÓN
+// 1️ CREACIÓN DE COLECCIONES CON VALIDACIÓN
 // =====================================================================
 
 // ---------------------------------------------------------------------
-// Colección: empresas
+// Colección empresas
 // ---------------------------------------------------------------------
 db.createCollection("empresas", {
   validator: {
@@ -56,7 +55,7 @@ db.createCollection("empresas", {
 });
 
 // ---------------------------------------------------------------------
-// Colección: vehiculos (con Embedded Pattern para componentes)
+// Colección vehiculos 
 // ---------------------------------------------------------------------
 db.createCollection("vehiculos", {
   validator: {
@@ -152,7 +151,7 @@ db.createCollection("vehiculos", {
 });
 
 // ---------------------------------------------------------------------
-// Colección: mantenimientos (con Reference Pattern)
+// Colección mantenimientos 
 // ---------------------------------------------------------------------
 db.createCollection("mantenimientos", {
   validator: {
@@ -249,7 +248,7 @@ db.createCollection("mantenimientos", {
 });
 
 // ---------------------------------------------------------------------
-// Colección: usuarios
+// Colección usuarios
 // ---------------------------------------------------------------------
 db.createCollection("usuarios", {
   validator: {
@@ -308,7 +307,7 @@ db.createCollection("usuarios", {
 });
 
 // ---------------------------------------------------------------------
-// Colección: alertas_predictivas
+// Colección  alertas_predictivas
 // ---------------------------------------------------------------------
 db.createCollection("alertas_predictivas", {
   validator: {
@@ -354,7 +353,7 @@ db.createCollection("alertas_predictivas", {
 });
 
 // =====================================================================
-// 2️⃣ CREACIÓN DE ÍNDICES PARA OPTIMIZACIÓN
+// 2 CREACIÓN DE ÍNDICES PARA OPTIMIZACIÓN
 // =====================================================================
 
 // Índices para empresas
@@ -389,7 +388,7 @@ db.alertas_predictivas.createIndex({ "fecha_generacion": -1 });
 db.alertas_predictivas.createIndex({ "estado": 1 });
 
 // =====================================================================
-// 3️⃣ INSERCIÓN DE DATOS DE PRUEBA
+// 3 INSERCIÓN DE DATOS DE PRUEBA
 // =====================================================================
 
 // Insertar empresas
@@ -861,12 +860,12 @@ db.alertas_predictivas.insertMany([
   }
 ]);
 
-print("✅ Base de datos flotia_nosql creada exitosamente");
-print("✅ Colecciones creadas con validación JSON Schema");
-print("✅ Índices creados para optimización");
-print("✅ Datos de prueba insertados");
+print(" Base de datos flotia_nosql creada exitosamente");
+print(" Colecciones creadas con validación JSON Schema");
+print(" Índices creados para optimización");
+print(" Datos de prueba insertados");
 print("");
-print("📊 Resumen:");
+print(" Resumen:");
 print("- Empresas:", db.empresas.countDocuments());
 print("- Vehículos:", db.vehiculos.countDocuments());
 print("- Mantenimientos:", db.mantenimientos.countDocuments());
