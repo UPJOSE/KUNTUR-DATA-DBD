@@ -1,6 +1,6 @@
 # ⚡ Quick Start - FlotIA
 
-Guía rápida para ejecutar el proyecto en 5 minutos.
+Guia rapida para ejecutar el proyecto en 5 minutos.
 
 ## 🚀 SQL Server (2 minutos)
 
@@ -8,7 +8,7 @@ Guía rápida para ejecutar el proyecto en 5 minutos.
 -- 1. Abrir SQL Server Management Studio (SSMS)
 -- 2. Conectarse a localhost
 
--- 3. Ejecutar creación (F5)
+-- 3. Ejecutar creacion (F5)
 -- Abrir: sql/create_tables.sql
 
 -- 4. Ejecutar datos (F5)
@@ -37,11 +37,11 @@ use flotia_nosql
 db.vehiculos.countDocuments()
 ```
 
-## ✅ Verificación Rápida
+## ✅ Verificacion Rapida
 
 ### SQL Server
 ```sql
--- Debe retornar 4 empresas, 12 vehículos
+-- Debe retornar 4 empresas, 12 vehiculos
 SELECT 
     (SELECT COUNT(*) FROM Empresa) AS Empresas,
     (SELECT COUNT(*) FROM Vehiculo) AS Vehiculos,
@@ -62,28 +62,28 @@ db.mantenimientos.countDocuments()
 FINALDBD/
 ├── sql/                    ← Scripts SQL Server
 ├── nosql/                  ← Scripts MongoDB
-├── diagramas/              ← ERD y Hackolade (crear aquí)
-├── docs/                   ← Documentación
-│   ├── evidencias/         ← Capturas (crear aquí)
+├── diagramas/              ← ERD y Hackolade (crear aqui)
+├── docs/                   ← Documentacion
+│   ├── evidencias/         ← Capturas (crear aqui)
 │   ├── GUIA_IMPLEMENTACION.md
 │   └── CONVENTIONAL_COMMITS.md
-├── README.md               ← Documentación principal
+├── README.md               ← Documentacion principal
 └── .gitignore
 ```
 
-## 🎯 Próximos Pasos
+## 🎯 Proximos Pasos
 
 1. ✅ Ejecutar scripts SQL y MongoDB
 2. 📐 Crear diagramas (ERD Editor + Hackolade)
 3. 📸 Capturar evidencias
 4. 🎥 Grabar videos
-5. 📝 Completar Capítulos III y IV
+5. 📝 Completar Capitulos III y IV
 6. 🔄 Subir a GitHub
 
-## 📚 Documentación Completa
+## 📚 Documentacion Completa
 
 Ver `README.md` y `docs/GUIA_IMPLEMENTACION.md` para instrucciones detalladas.
 
 ---
 
-**¿Problemas?** Consulta la sección de Solución de Problemas en `docs/GUIA_IMPLEMENTACION.md`
+**Problemas?** Consulta la seccion de Solucion de Problemas en `docs/GUIA_IMPLEMENTACION.md`

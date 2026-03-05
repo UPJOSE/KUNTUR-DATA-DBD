@@ -1,21 +1,21 @@
 -- =====================================================================
--- CONSULTAS DE VERIFICACIÓN - FlotIA
--- Ejecutar después de create_tables.sql e inserts.sql
+-- CONSULTAS DE VERIFICACION - FlotIA
+-- Ejecutar despues de create_tables.sql e inserts.sql
 -- =====================================================================
 
 USE FlotIA_DB;
 GO
 
 PRINT '=====================================================================';
-PRINT 'VERIFICACIÓN DE IMPLEMENTACIÓN - FLOTIA';
+PRINT 'VERIFICACION DE IMPLEMENTACION - FLOTIA';
 PRINT '=====================================================================';
 PRINT '';
 
 -- =====================================================================
--- 1️⃣ VERIFICACIÓN DE TABLAS
+-- 1️⃣ VERIFICACION DE TABLAS
 -- =====================================================================
 
-PRINT '--- 1. VERIFICACIÓN DE TABLAS ---';
+PRINT '--- 1. VERIFICACION DE TABLAS ---';
 PRINT '';
 
 SELECT 
@@ -30,10 +30,10 @@ ORDER BY TABLE_NAME;
 PRINT '';
 
 -- =====================================================================
--- 2️⃣ VERIFICACIÓN DE DATOS
+-- 2️⃣ VERIFICACION DE DATOS
 -- =====================================================================
 
-PRINT '--- 2. VERIFICACIÓN DE DATOS INSERTADOS ---';
+PRINT '--- 2. VERIFICACION DE DATOS INSERTADOS ---';
 PRINT '';
 
 SELECT 'Empresas' AS Entidad, COUNT(*) AS Total FROM Empresa
@@ -55,10 +55,10 @@ SELECT 'Reportes', COUNT(*) FROM Reporte;
 PRINT '';
 
 -- =====================================================================
--- 3️⃣ VERIFICACIÓN DE PROCEDIMIENTOS ALMACENADOS
+-- 3️⃣ VERIFICACION DE PROCEDIMIENTOS ALMACENADOS
 -- =====================================================================
 
-PRINT '--- 3. VERIFICACIÓN DE PROCEDIMIENTOS ALMACENADOS ---';
+PRINT '--- 3. VERIFICACION DE PROCEDIMIENTOS ALMACENADOS ---';
 PRINT '';
 
 SELECT 
@@ -71,10 +71,10 @@ ORDER BY ROUTINE_NAME;
 PRINT '';
 
 -- =====================================================================
--- 4️⃣ VERIFICACIÓN DE VISTAS
+-- 4️⃣ VERIFICACION DE VISTAS
 -- =====================================================================
 
-PRINT '--- 4. VERIFICACIÓN DE VISTAS ---';
+PRINT '--- 4. VERIFICACION DE VISTAS ---';
 PRINT '';
 
 SELECT 
@@ -85,10 +85,10 @@ ORDER BY TABLE_NAME;
 PRINT '';
 
 -- =====================================================================
--- 5️⃣ VERIFICACIÓN DE FUNCIONES
+-- 5️⃣ VERIFICACION DE FUNCIONES
 -- =====================================================================
 
-PRINT '--- 5. VERIFICACIÓN DE FUNCIONES ---';
+PRINT '--- 5. VERIFICACION DE FUNCIONES ---';
 PRINT '';
 
 SELECT 
@@ -101,10 +101,10 @@ ORDER BY ROUTINE_NAME;
 PRINT '';
 
 -- =====================================================================
--- 6️⃣ VERIFICACIÓN DE ÍNDICES
+-- 6️⃣ VERIFICACION DE INDICES
 -- =====================================================================
 
-PRINT '--- 6. VERIFICACIÓN DE ÍNDICES ---';
+PRINT '--- 6. VERIFICACION DE INDICES ---';
 PRINT '';
 
 SELECT 
@@ -120,10 +120,10 @@ ORDER BY t.name, i.name;
 PRINT '';
 
 -- =====================================================================
--- 7️⃣ VERIFICACIÓN DE RELACIONES (FOREIGN KEYS)
+-- 7️⃣ VERIFICACION DE RELACIONES (FOREIGN KEYS)
 -- =====================================================================
 
-PRINT '--- 7. VERIFICACIÓN DE RELACIONES (FOREIGN KEYS) ---';
+PRINT '--- 7. VERIFICACION DE RELACIONES (FOREIGN KEYS) ---';
 PRINT '';
 
 SELECT 
@@ -136,17 +136,17 @@ ORDER BY TablaOrigen;
 PRINT '';
 
 -- =====================================================================
--- 8️⃣ CONSULTAS ANALÍTICAS DE PRUEBA
+-- 8️⃣ CONSULTAS ANALITICAS DE PRUEBA
 -- =====================================================================
 
-PRINT '--- 8. CONSULTAS ANALÍTICAS ---';
+PRINT '--- 8. CONSULTAS ANALITICAS ---';
 PRINT '';
 
 PRINT 'Resumen de Flota por Empresa:';
 SELECT * FROM vw_ResumenFlotaPorEmpresa;
 PRINT '';
 
-PRINT 'Top 5 Vehículos con Mayor Costo de Mantenimiento:';
+PRINT 'Top 5 Vehiculos con Mayor Costo de Mantenimiento:';
 SELECT TOP 5 
     Placa,
     Marca,
@@ -169,7 +169,7 @@ GROUP BY Tipo
 ORDER BY CostoTotal DESC;
 PRINT '';
 
-PRINT 'Vehículos por Estado Operativo:';
+PRINT 'Vehiculos por Estado Operativo:';
 SELECT 
     EstadoOperativo,
     COUNT(*) AS Cantidad
@@ -178,7 +178,7 @@ GROUP BY EstadoOperativo
 ORDER BY Cantidad DESC;
 PRINT '';
 
-PRINT 'Técnicos con Mayor Cantidad de Trabajos:';
+PRINT 'Tecnicos con Mayor Cantidad de Trabajos:';
 SELECT 
     t.Nombre + ' ' + t.Apellido AS Tecnico,
     t.Especialidad,
@@ -197,7 +197,7 @@ PRINT '';
 PRINT '--- 9. PRUEBA DE PROCEDIMIENTOS ALMACENADOS ---';
 PRINT '';
 
-PRINT 'Probando sp_ObtenerHistorialMantenimiento para Vehículo ID 1:';
+PRINT 'Probando sp_ObtenerHistorialMantenimiento para Vehiculo ID 1:';
 EXEC sp_ObtenerHistorialMantenimiento @VehiculoID = 1;
 PRINT '';
 
@@ -208,7 +208,7 @@ PRINT '';
 PRINT '--- 10. PRUEBA DE FUNCIONES ---';
 PRINT '';
 
-PRINT 'Costo Total de Mantenimiento por Vehículo:';
+PRINT 'Costo Total de Mantenimiento por Vehiculo:';
 SELECT 
     v.Placa,
     v.Marca,
@@ -224,7 +224,7 @@ PRINT '';
 -- =====================================================================
 
 PRINT '=====================================================================';
-PRINT 'RESUMEN DE VERIFICACIÓN';
+PRINT 'RESUMEN DE VERIFICACION';
 PRINT '=====================================================================';
 
 DECLARE @TotalTablas INT, @TotalProcedimientos INT, @TotalVistas INT, @TotalFunciones INT;
@@ -246,13 +246,13 @@ PRINT '  - Funciones: ' + CAST(@TotalFunciones AS VARCHAR(10));
 PRINT '';
 PRINT 'Datos:';
 PRINT '  - Empresas: ' + CAST(@TotalEmpresas AS VARCHAR(10));
-PRINT '  - Vehículos: ' + CAST(@TotalVehiculos AS VARCHAR(10));
+PRINT '  - Vehiculos: ' + CAST(@TotalVehiculos AS VARCHAR(10));
 PRINT '  - Mantenimientos: ' + CAST(@TotalMantenimientos AS VARCHAR(10));
 PRINT '';
 
 IF @TotalTablas >= 8 AND @TotalProcedimientos >= 4 AND @TotalVistas >= 2 AND @TotalFunciones >= 2
 BEGIN
-    PRINT '✅ VERIFICACIÓN EXITOSA - Todos los objetos creados correctamente';
+    PRINT '✅ VERIFICACION EXITOSA - Todos los objetos creados correctamente';
 END
 ELSE
 BEGIN

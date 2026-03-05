@@ -1,8 +1,8 @@
-# 📘 Guía de Implementación - FlotIA
+# 📘 Guia de Implementacion - FlotIA
 
 ## 🎯 Objetivo
 
-Esta guía proporciona instrucciones paso a paso para implementar el sistema FlotIA desde cero, cumpliendo con todos los requisitos del proyecto TF1.
+Esta guia proporciona instrucciones paso a paso para implementar el sistema FlotIA desde cero, cumpliendo con todos los requisitos del proyecto TF1.
 
 ---
 
@@ -12,7 +12,7 @@ Esta guía proporciona instrucciones paso a paso para implementar el sistema Flo
 
 1. **SQL Server 2019+**
    - Descargar: https://www.microsoft.com/en-us/sql-server/sql-server-downloads
-   - Versión recomendada: Developer Edition (gratuita)
+   - Version recomendada: Developer Edition (gratuita)
 
 2. **SQL Server Management Studio (SSMS)**
    - Descargar: https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms
@@ -35,20 +35,20 @@ Esta guía proporciona instrucciones paso a paso para implementar el sistema Flo
 
 7. **Hackolade**
    - Descargar: https://hackolade.com/download.html
-   - Versión Community (gratuita) es suficiente
+   - Version Community (gratuita) es suficiente
 
 ---
 
-## 🚀 Paso 1: Configuración Inicial
+## 🚀 Paso 1: Configuracion Inicial
 
 ### 1.1 Clonar o Descargar el Proyecto
 
 ```bash
-# Opción A: Clonar desde GitHub (si ya está en repositorio)
+# Opcion A: Clonar desde GitHub (si ya esta en repositorio)
 git clone https://github.com/tu-usuario/flotia.git
 cd flotia
 
-# Opción B: Crear estructura desde cero
+# Opcion B: Crear estructura desde cero
 mkdir FINALDBD
 cd FINALDBD
 ```
@@ -68,12 +68,12 @@ FINALDBD/
 
 ---
 
-## 🗄️ Paso 2: Implementación SQL Server
+## 🗄️ Paso 2: Implementacion SQL Server
 
 ### 2.1 Iniciar SQL Server
 
 ```bash
-# Verificar que SQL Server esté corriendo
+# Verificar que SQL Server este corriendo
 # Windows: Abrir "Services" y buscar "SQL Server"
 # Debe estar en estado "Running"
 ```
@@ -87,13 +87,13 @@ FINALDBD/
    - Authentication: Windows Authentication
 3. Click en "Connect"
 
-### 2.3 Ejecutar Script de Creación
+### 2.3 Ejecutar Script de Creacion
 
 ```sql
 -- En SSMS, abrir archivo: sql/create_tables.sql
 -- Presionar F5 o click en "Execute"
 
--- Verificar creación exitosa
+-- Verificar creacion exitosa
 USE FlotIA_DB;
 GO
 
@@ -120,7 +120,7 @@ ORDER BY TABLE_NAME;
 -- En SSMS, abrir archivo: sql/inserts.sql
 -- Presionar F5 o click en "Execute"
 
--- Verificar inserción
+-- Verificar insercion
 SELECT 'Empresas' AS Tabla, COUNT(*) AS Total FROM Empresa
 UNION ALL
 SELECT 'Vehiculos', COUNT(*) FROM Vehiculo
@@ -139,7 +139,7 @@ SELECT 'Mantenimientos', COUNT(*) FROM Mantenimiento;
 ### 2.5 Probar Procedimientos Almacenados
 
 ```sql
--- Probar registro de vehículo
+-- Probar registro de vehiculo
 EXEC sp_RegistrarVehiculo 
     @EmpresaID = 1,
     @Placa = 'TEST-001',
@@ -159,7 +159,7 @@ SELECT * FROM Vehiculo WHERE Placa = 'TEST-001';
 -- Vista de resumen por empresa
 SELECT * FROM vw_ResumenFlotaPorEmpresa;
 
--- Vista de costos por vehículo
+-- Vista de costos por vehiculo
 SELECT TOP 5 * 
 FROM vw_CostosMantenimientoPorVehiculo 
 ORDER BY CostoTotal DESC;
@@ -167,7 +167,7 @@ ORDER BY CostoTotal DESC;
 
 ---
 
-## 📊 Paso 3: Implementación MongoDB
+## 📊 Paso 3: Implementacion MongoDB
 
 ### 3.1 Iniciar MongoDB
 
@@ -196,7 +196,7 @@ mongosh
 // En mongosh
 load("C:/Users/amaro/Documents/FINALDBD/nosql/collections.js")
 
-// Verificar creación
+// Verificar creacion
 use flotia_nosql
 show collections
 
@@ -211,10 +211,10 @@ show collections
 ### 3.4 Verificar Validaciones JSON Schema
 
 ```javascript
-// Ver validación de colección vehiculos
+// Ver validacion de coleccion vehiculos
 db.getCollectionInfos({name: "vehiculos"})[0].options.validator
 
-// Probar validación (debe fallar)
+// Probar validacion (debe fallar)
 db.vehiculos.insertOne({
     placa: "TEST-999"
     // Falta empresa_id, marca, modelo (requeridos)
@@ -223,20 +223,20 @@ db.vehiculos.insertOne({
 // Error esperado: Document failed validation
 ```
 
-### 3.5 Verificar Índices
+### 3.5 Verificar Indices
 
 ```javascript
-// Ver índices de mantenimientos
+// Ver indices de mantenimientos
 db.mantenimientos.getIndexes()
 
-// Debe mostrar índices en:
+// Debe mostrar indices en:
 // - vehiculo_id
 // - fecha
 // - tipo
 // - falla.categoria
 ```
 
-### 3.6 Ejecutar Consultas Analíticas
+### 3.6 Ejecutar Consultas Analiticas
 
 ```javascript
 // Ejecutar todas las consultas
@@ -250,13 +250,13 @@ db.mantenimientos.aggregate([
 ])
 ```
 
-### 3.7 Usar MongoDB Compass (Interfaz Gráfica)
+### 3.7 Usar MongoDB Compass (Interfaz Grafica)
 
 1. Abrir MongoDB Compass
 2. Conectar a: `mongodb://localhost:27017`
 3. Seleccionar base de datos: `flotia_nosql`
 4. Explorar colecciones y documentos
-5. Ejecutar consultas en la pestaña "Aggregations"
+5. Ejecutar consultas en la pestana "Aggregations"
 
 ---
 
@@ -264,9 +264,9 @@ db.mantenimientos.aggregate([
 
 ### 4.1 Diagrama ERD (ERD Editor)
 
-**Opción A: VS Code Extension**
+**Opcion A: VS Code Extension**
 
-1. Instalar extensión "ERD Editor" en VS Code
+1. Instalar extension "ERD Editor" en VS Code
 2. Crear nuevo archivo: `diagramas/ERD_FlotIA.vuerd.json`
 3. Abrir con ERD Editor
 4. Crear entidades:
@@ -280,11 +280,11 @@ db.mantenimientos.aggregate([
    - Tecnico 1:N Mantenimiento
 6. Exportar como imagen: Click derecho → Export → PNG
 
-**Opción B: draw.io**
+**Opcion B: draw.io**
 
 1. Ir a https://app.diagrams.net/
 2. Crear nuevo diagrama → Entity Relation
-3. Diseñar ERD según modelo
+3. Disenar ERD segun modelo
 4. Exportar como PNG/PDF
 
 ### 4.2 Diagrama Documental (Hackolade)
@@ -321,11 +321,11 @@ Crear carpeta: `docs/evidencias/sql/`
 
 1. `sql_01_database.png` - Base de datos en Object Explorer
 2. `sql_02_tables.png` - Lista de tablas
-3. `sql_03_create_script.png` - Ejecución de create_tables.sql
-4. `sql_04_insert_script.png` - Ejecución de inserts.sql
+3. `sql_03_create_script.png` - Ejecucion de create_tables.sql
+4. `sql_04_insert_script.png` - Ejecucion de inserts.sql
 5. `sql_05_vista_resumen.png` - Resultado de vw_ResumenFlotaPorEmpresa
-6. `sql_06_procedimiento.png` - Ejecución de sp_RegistrarVehiculo
-7. `sql_07_indices.png` - Lista de índices creados
+6. `sql_06_procedimiento.png` - Ejecucion de sp_RegistrarVehiculo
+7. `sql_07_indices.png` - Lista de indices creados
 
 ### 5.2 Evidencias MongoDB
 
@@ -335,12 +335,12 @@ Crear carpeta: `docs/evidencias/mongodb/`
 
 1. `mongo_01_compass.png` - MongoDB Compass con base flotia_nosql
 2. `mongo_02_collections.png` - Lista de colecciones
-3. `mongo_03_validation.png` - JSON Schema de validación
-4. `mongo_04_indices.png` - Índices creados
+3. `mongo_03_validation.png` - JSON Schema de validacion
+4. `mongo_04_indices.png` - Indices creados
 5. `mongo_05_query_fallas.png` - Resultado consulta fallas recurrentes
-6. `mongo_06_query_costos.png` - Resultado consulta costos por vehículo
-7. `mongo_07_query_tecnicos.png` - Resultado consulta rendimiento técnicos
-8. `mongo_08_query_componentes.png` - Resultado consulta componentes críticos
+6. `mongo_06_query_costos.png` - Resultado consulta costos por vehiculo
+7. `mongo_07_query_tecnicos.png` - Resultado consulta rendimiento tecnicos
+8. `mongo_08_query_componentes.png` - Resultado consulta componentes criticos
 
 ### 5.3 Evidencias Diagramas
 
@@ -362,31 +362,31 @@ Crear carpeta: `docs/evidencias/git/`
 
 ## 🎥 Paso 6: Grabar Videos
 
-### 6.1 Video de Exposición (10-15 minutos)
+### 6.1 Video de Exposicion (10-15 minutos)
 
 **Estructura sugerida:**
 
-1. **Introducción (1 min)**
-   - Presentación del equipo
+1. **Introduccion (1 min)**
+   - Presentacion del equipo
    - Problema a resolver
-   - Solución propuesta
+   - Solucion propuesta
 
 2. **Arquitectura (2 min)**
-   - Explicar enfoque híbrido
+   - Explicar enfoque hibrido
    - Mostrar diagrama ERD
    - Mostrar diagrama Hackolade
 
-3. **Demostración SQL Server (4 min)**
+3. **Demostracion SQL Server (4 min)**
    - Mostrar base de datos en SSMS
    - Ejecutar create_tables.sql
    - Ejecutar inserts.sql
    - Mostrar procedimientos almacenados
    - Ejecutar consultas en vistas
 
-4. **Demostración MongoDB (4 min)**
+4. **Demostracion MongoDB (4 min)**
    - Mostrar colecciones en Compass
    - Explicar validaciones JSON Schema
-   - Ejecutar consultas analíticas
+   - Ejecutar consultas analiticas
    - Mostrar resultados
 
 5. **Patrones NoSQL (2 min)**
@@ -396,45 +396,45 @@ Crear carpeta: `docs/evidencias/git/`
 
 6. **Conclusiones (2 min)**
    - Aprendizajes clave
-   - Ventajas del enfoque híbrido
+   - Ventajas del enfoque hibrido
    - Trabajo futuro
 
-**Herramientas de grabación:**
+**Herramientas de grabacion:**
 - OBS Studio (gratuito)
-- Zoom (grabar reunión)
+- Zoom (grabar reunion)
 - Loom
-- Microsoft PowerPoint (grabar presentación)
+- Microsoft PowerPoint (grabar presentacion)
 
 ### 6.2 Video About-the-Team (3-5 minutos)
 
 **Contenido:**
 
-1. Presentación individual de cada integrante (30 seg c/u)
-   - Nombre, código, carrera
+1. Presentacion individual de cada integrante (30 seg c/u)
+   - Nombre, codigo, carrera
    - Rol en el proyecto
    - Aprendizaje principal
 
-2. Dinámica de trabajo (1 min)
-   - Cómo se organizaron
-   - Herramientas de colaboración
-   - Desafíos enfrentados
+2. Dinamica de trabajo (1 min)
+   - Como se organizaron
+   - Herramientas de colaboracion
+   - Desafios enfrentados
 
 3. Reflexiones finales (1 min)
    - Experiencia del trabajo en equipo
-   - Aplicación práctica de conocimientos
+   - Aplicacion practica de conocimientos
    - Mensaje final
 
 ---
 
-## 📝 Paso 7: Documentación
+## 📝 Paso 7: Documentacion
 
-### 7.1 Capítulo III - Marco Teórico
+### 7.1 Capitulo III - Marco Teorico
 
 **Contenido sugerido:**
 
 1. Bases de Datos Relacionales
    - Modelo relacional
-   - Normalización
+   - Normalizacion
    - Integridad referencial
    - SQL Server
 
@@ -442,32 +442,32 @@ Crear carpeta: `docs/evidencias/git/`
    - Modelo documental
    - MongoDB
    - JSON y BSON
-   - Patrones de diseño NoSQL
+   - Patrones de diseno NoSQL
 
-3. Arquitectura Híbrida
+3. Arquitectura Hibrida
    - Ventajas y desventajas
    - Casos de uso
-   - Integración de modelos
+   - Integracion de modelos
 
-### 7.2 Capítulo IV - Desarrollo del Proyecto
+### 7.2 Capitulo IV - Desarrollo del Proyecto
 
 **Contenido sugerido:**
 
-1. Análisis de Requerimientos
+1. Analisis de Requerimientos
    - Requerimientos funcionales
    - Requerimientos no funcionales
 
-2. Diseño de Base de Datos
+2. Diseno de Base de Datos
    - Diagrama ERD
    - Diagrama documental
-   - Justificación de decisiones
+   - Justificacion de decisiones
 
-3. Implementación
+3. Implementacion
    - Scripts SQL Server
    - Scripts MongoDB
    - Procedimientos y funciones
 
-4. Pruebas y Validación
+4. Pruebas y Validacion
    - Casos de prueba
    - Resultados obtenidos
    - Evidencias
@@ -498,8 +498,8 @@ git commit -m "feat: estructura inicial del proyecto FlotIA"
 1. Ir a https://github.com
 2. Click en "New repository"
 3. Nombre: `flotia-db-proyecto`
-4. Descripción: "Sistema de Gestión Inteligente de Flotas - Proyecto Híbrido"
-5. Público o Privado (según preferencia)
+4. Descripcion: "Sistema de Gestion Inteligente de Flotas - Proyecto Hibrido"
+5. Publico o Privado (segun preferencia)
 6. NO inicializar con README (ya lo tenemos)
 7. Click "Create repository"
 
@@ -509,7 +509,7 @@ git commit -m "feat: estructura inicial del proyecto FlotIA"
 # Agregar remote
 git remote add origin https://github.com/tu-usuario/flotia-db-proyecto.git
 
-# Subir código
+# Subir codigo
 git branch -M main
 git push -u origin main
 ```
@@ -520,25 +520,25 @@ git push -u origin main
 # Ejemplos de commits correctos
 
 git add sql/create_tables.sql
-git commit -m "feat: creación de tablas y procedimientos SQL Server"
+git commit -m "feat: creacion de tablas y procedimientos SQL Server"
 
 git add nosql/collections.js
-git commit -m "feat: creación de colecciones MongoDB con validación"
+git commit -m "feat: creacion de colecciones MongoDB con validacion"
 
 git add diagramas/ERD_Fisico.png
-git commit -m "docs: agregado diagrama ERD físico"
+git commit -m "docs: agregado diagrama ERD fisico"
 
 git add sql/inserts.sql
 git commit -m "feat: datos de prueba para SQL Server"
 
 git add nosql/queries.js
-git commit -m "feat: consultas analíticas MongoDB"
+git commit -m "feat: consultas analiticas MongoDB"
 
 git add README.md
-git commit -m "docs: documentación completa del proyecto"
+git commit -m "docs: documentacion completa del proyecto"
 
 git add .gitignore
-git commit -m "chore: configuración de gitignore"
+git commit -m "chore: configuracion de gitignore"
 ```
 
 ---
@@ -554,34 +554,34 @@ git commit -m "chore: configuración de gitignore"
   - [ ] 4 procedimientos almacenados funcionando
   - [ ] 2 vistas creadas
   - [ ] 2 funciones creadas
-  - [ ] Índices creados
+  - [ ] Indices creados
 
 - [ ] MongoDB
   - [ ] Base de datos flotia_nosql creada
-  - [ ] 5 colecciones con validación JSON Schema
-  - [ ] Índices creados
+  - [ ] 5 colecciones con validacion JSON Schema
+  - [ ] Indices creados
   - [ ] Datos de prueba insertados
-  - [ ] Mínimo 8 consultas funcionando
+  - [ ] Minimo 8 consultas funcionando
 
 - [ ] Diagramas
-  - [ ] ERD físico en ERD Editor
+  - [ ] ERD fisico en ERD Editor
   - [ ] Diagrama documental en Hackolade
   - [ ] Exportados a PNG/PDF
 
 - [ ] Evidencias
-  - [ ] Mínimo 7 capturas SQL Server
-  - [ ] Mínimo 8 capturas MongoDB
+  - [ ] Minimo 7 capturas SQL Server
+  - [ ] Minimo 8 capturas MongoDB
   - [ ] Capturas de diagramas
   - [ ] Capturas de Git/GitHub
 
 - [ ] Videos
-  - [ ] Video exposición (10-15 min)
+  - [ ] Video exposicion (10-15 min)
   - [ ] Video About-the-Team (3-5 min)
   - [ ] Subidos a YouTube/Drive
 
-- [ ] Documentación
-  - [ ] Capítulo III completo
-  - [ ] Capítulo IV completo
+- [ ] Documentacion
+  - [ ] Capitulo III completo
+  - [ ] Capitulo IV completo
   - [ ] README.md actualizado
 
 - [ ] Git/GitHub
@@ -592,13 +592,13 @@ git commit -m "chore: configuración de gitignore"
 
 ---
 
-## 🆘 Solución de Problemas
+## 🆘 Solucion de Problemas
 
 ### SQL Server
 
 **Problema:** No puedo conectarme a SQL Server
 
-**Solución:**
+**Solucion:**
 ```bash
 # Verificar servicio
 services.msc → SQL Server → Iniciar
@@ -612,7 +612,7 @@ localhost
 
 **Problema:** Error "Database already exists"
 
-**Solución:**
+**Solucion:**
 ```sql
 -- Eliminar base de datos existente
 USE master;
@@ -626,22 +626,22 @@ GO
 
 **Problema:** MongoDB no inicia
 
-**Solución:**
+**Solucion:**
 ```bash
 # Crear carpeta de datos
 mkdir C:\data\db
 
-# Iniciar con ruta específica
+# Iniciar con ruta especifica
 mongod --dbpath "C:\data\db"
 ```
 
-**Problema:** Error de validación al insertar
+**Problema:** Error de validacion al insertar
 
-**Solución:**
+**Solucion:**
 ```javascript
-// Verificar que todos los campos requeridos estén presentes
+// Verificar que todos los campos requeridos esten presentes
 // Verificar tipos de datos (string, int, objectId, etc.)
-// Ver validación de la colección
+// Ver validacion de la coleccion
 db.getCollectionInfos({name: "nombre_coleccion"})
 ```
 
@@ -649,13 +649,13 @@ db.getCollectionInfos({name: "nombre_coleccion"})
 
 ## 📞 Soporte
 
-Si tienes problemas durante la implementación:
+Si tienes problemas durante la implementacion:
 
-1. Revisar esta guía paso a paso
-2. Consultar documentación oficial
-3. Revisar mensajes de error específicos
+1. Revisar esta guia paso a paso
+2. Consultar documentacion oficial
+3. Revisar mensajes de error especificos
 4. Contactar al equipo de desarrollo
 
 ---
 
-**¡Éxito en tu implementación!** 🚀
+**Exito en tu implementacion!** 🚀

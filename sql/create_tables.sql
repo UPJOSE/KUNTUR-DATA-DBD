@@ -1,5 +1,5 @@
 -- =====================================================================
--- PROYECTO: FlotIA - Gestión Inteligente de Flotas
+-- PROYECTO: FlotIA - Gestion Inteligente de Flotas
 -- STARTUP: KunturData
 -- MODELO: Relacional (SQL Server)
 -- =====================================================================
@@ -153,7 +153,7 @@ CREATE TABLE Reporte (
 GO
 
 -- =====================================================================
--- 3️⃣ ÍNDICES PARA OPTIMIZACIÓN
+-- 3️⃣ INDICES PARA OPTIMIZACION
 -- =====================================================================
 
 CREATE INDEX idx_vehiculo_empresa ON Vehiculo(EmpresaID);
@@ -171,7 +171,7 @@ GO
 -- =====================================================================
 
 -- ---------------------------------------------------------------------
--- Procedimiento: Registrar Vehículo
+-- Procedimiento: Registrar Vehiculo
 -- ---------------------------------------------------------------------
 CREATE PROCEDURE sp_RegistrarVehiculo
     @EmpresaID INT,
@@ -188,7 +188,7 @@ BEGIN
         INSERT INTO Vehiculo(EmpresaID, Placa, Marca, Modelo, Anio, Tipo, KilometrajeActual)
         VALUES(@EmpresaID, @Placa, @Marca, @Modelo, @Anio, @Tipo, @Kilometraje);
         
-        SELECT 'Vehículo registrado exitosamente' AS Mensaje, SCOPE_IDENTITY() AS VehiculoID;
+        SELECT 'Vehiculo registrado exitosamente' AS Mensaje, SCOPE_IDENTITY() AS VehiculoID;
     END TRY
     BEGIN CATCH
         SELECT ERROR_MESSAGE() AS Error;
@@ -280,7 +280,7 @@ END;
 GO
 
 -- =====================================================================
--- 5️⃣ VISTAS ANALÍTICAS
+-- 5️⃣ VISTAS ANALITICAS
 -- =====================================================================
 
 -- ---------------------------------------------------------------------
@@ -300,7 +300,7 @@ GROUP BY e.EmpresaID, e.RazonSocial;
 GO
 
 -- ---------------------------------------------------------------------
--- Vista: Costos de Mantenimiento por Vehículo
+-- Vista: Costos de Mantenimiento por Vehiculo
 -- ---------------------------------------------------------------------
 CREATE VIEW vw_CostosMantenimientoPorVehiculo AS
 SELECT 
@@ -318,11 +318,11 @@ GROUP BY v.VehiculoID, v.Placa, v.Marca, v.Modelo;
 GO
 
 -- =====================================================================
--- 6️⃣ FUNCIONES ÚTILES
+-- 6️⃣ FUNCIONES UTILES
 -- =====================================================================
 
 -- ---------------------------------------------------------------------
--- Función: Calcular Costo Total de Mantenimiento
+-- Funcion: Calcular Costo Total de Mantenimiento
 -- ---------------------------------------------------------------------
 CREATE FUNCTION fn_CostoTotalMantenimiento(@VehiculoID INT)
 RETURNS DECIMAL(10,2)
@@ -339,7 +339,7 @@ END;
 GO
 
 -- ---------------------------------------------------------------------
--- Función: Verificar Mantenimiento Pendiente
+-- Funcion: Verificar Mantenimiento Pendiente
 -- ---------------------------------------------------------------------
 CREATE FUNCTION fn_TieneMantenimientoPendiente(@VehiculoID INT)
 RETURNS BIT

@@ -1,5 +1,5 @@
 // =====================================================================
-// PROYECTO: FlotIA - Gestión Inteligente de Flotas
+// PROYECTO: FlotIA - Gestion Inteligente de Flotas
 // STARTUP: KunturData
 // MODELO: No Relacional 
 // =====================================================================
@@ -7,11 +7,11 @@
 use flotia_nosql
 
 // =====================================================================
-// 1️ CREACIÓN DE COLECCIONES CON VALIDACIÓN
+// 1️ CREACION DE COLECCIONES CON VALIDACION
 // =====================================================================
 
 // ---------------------------------------------------------------------
-// Colección empresas
+// Coleccion empresas
 // ---------------------------------------------------------------------
 db.createCollection("empresas", {
   validator: {
@@ -21,12 +21,12 @@ db.createCollection("empresas", {
       properties: {
         razon_social: {
           bsonType: "string",
-          description: "Razón social de la empresa - requerido"
+          description: "Razon social de la empresa - requerido"
         },
         ruc: {
           bsonType: "string",
           pattern: "^[0-9]{11}$",
-          description: "RUC de 11 dígitos - requerido"
+          description: "RUC de 11 digitos - requerido"
         },
         sector: {
           bsonType: "string",
@@ -55,7 +55,7 @@ db.createCollection("empresas", {
 });
 
 // ---------------------------------------------------------------------
-// Colección vehiculos 
+// Coleccion vehiculos 
 // ---------------------------------------------------------------------
 db.createCollection("vehiculos", {
   validator: {
@@ -65,7 +65,7 @@ db.createCollection("vehiculos", {
       properties: {
         placa: {
           bsonType: "string",
-          description: "Placa del vehículo - requerido"
+          description: "Placa del vehiculo - requerido"
         },
         empresa_id: {
           bsonType: "objectId",
@@ -73,11 +73,11 @@ db.createCollection("vehiculos", {
         },
         marca: {
           bsonType: "string",
-          description: "Marca del vehículo - requerido"
+          description: "Marca del vehiculo - requerido"
         },
         modelo: {
           bsonType: "string",
-          description: "Modelo del vehículo - requerido"
+          description: "Modelo del vehiculo - requerido"
         },
         anio: {
           bsonType: "int",
@@ -86,7 +86,7 @@ db.createCollection("vehiculos", {
         },
         tipo: {
           enum: ["Camion", "Camioneta", "Auto", "Bus", "Moto"],
-          description: "Tipo de vehículo"
+          description: "Tipo de vehiculo"
         },
         kilometraje_actual: {
           bsonType: "int",
@@ -94,11 +94,11 @@ db.createCollection("vehiculos", {
         },
         estado_operativo: {
           enum: ["Operativo", "En mantenimiento", "Fuera de servicio"],
-          description: "Estado operativo del vehículo"
+          description: "Estado operativo del vehiculo"
         },
         componentes: {
           bsonType: "array",
-          description: "Embedded Pattern - Componentes del vehículo",
+          description: "Embedded Pattern - Componentes del vehiculo",
           items: {
             bsonType: "object",
             required: ["nombre", "tipo"],
@@ -127,7 +127,7 @@ db.createCollection("vehiculos", {
         },
         telemetria: {
           bsonType: "object",
-          description: "Datos de telemetría IoT (escalabilidad futura)",
+          description: "Datos de telemetria IoT (escalabilidad futura)",
           properties: {
             gps: {
               bsonType: "object",
@@ -151,7 +151,7 @@ db.createCollection("vehiculos", {
 });
 
 // ---------------------------------------------------------------------
-// Colección mantenimientos 
+// Coleccion mantenimientos 
 // ---------------------------------------------------------------------
 db.createCollection("mantenimientos", {
   validator: {
@@ -161,7 +161,7 @@ db.createCollection("mantenimientos", {
       properties: {
         vehiculo_id: {
           bsonType: "objectId",
-          description: "Reference Pattern - ID del vehículo - requerido"
+          description: "Reference Pattern - ID del vehiculo - requerido"
         },
         tecnico: {
           bsonType: "object",
@@ -197,15 +197,15 @@ db.createCollection("mantenimientos", {
         },
         falla: {
           bsonType: "object",
-          description: "Información de la falla (para análisis de fallas recurrentes)",
+          description: "Informacion de la falla (para analisis de fallas recurrentes)",
           properties: {
             descripcion: {
               bsonType: "string",
-              description: "Descripción de la falla"
+              description: "Descripcion de la falla"
             },
             categoria: {
               enum: ["Motor", "Transmision", "Frenos", "Suspension", "Electrico", "Neumaticos", "Hidraulico", "Otro"],
-              description: "Categoría de la falla"
+              description: "Categoria de la falla"
             },
             severidad: {
               enum: ["Baja", "Media", "Alta", "Critica"],
@@ -240,7 +240,7 @@ db.createCollection("mantenimientos", {
           bsonType: "int",
           minimum: 1,
           maximum: 5,
-          description: "Calificación del servicio (1-5)"
+          description: "Calificacion del servicio (1-5)"
         }
       }
     }
@@ -248,7 +248,7 @@ db.createCollection("mantenimientos", {
 });
 
 // ---------------------------------------------------------------------
-// Colección usuarios
+// Coleccion usuarios
 // ---------------------------------------------------------------------
 db.createCollection("usuarios", {
   validator: {
@@ -263,7 +263,7 @@ db.createCollection("usuarios", {
         email: {
           bsonType: "string",
           pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
-          description: "Email válido - requerido"
+          description: "Email valido - requerido"
         },
         nombre_completo: {
           bsonType: "object",
@@ -307,7 +307,7 @@ db.createCollection("usuarios", {
 });
 
 // ---------------------------------------------------------------------
-// Colección  alertas_predictivas
+// Coleccion  alertas_predictivas
 // ---------------------------------------------------------------------
 db.createCollection("alertas_predictivas", {
   validator: {
@@ -317,15 +317,15 @@ db.createCollection("alertas_predictivas", {
       properties: {
         vehiculo_id: {
           bsonType: "objectId",
-          description: "ID del vehículo - requerido"
+          description: "ID del vehiculo - requerido"
         },
         tipo_alerta: {
-          enum: ["Mantenimiento Programado", "Falla Predictiva", "Componente Crítico", "Kilometraje Alto"],
+          enum: ["Mantenimiento Programado", "Falla Predictiva", "Componente Critico", "Kilometraje Alto"],
           description: "Tipo de alerta - requerido"
         },
         fecha_generacion: {
           bsonType: "date",
-          description: "Fecha de generación - requerido"
+          description: "Fecha de generacion - requerido"
         },
         prioridad: {
           enum: ["Baja", "Media", "Alta", "Urgente"],
@@ -341,7 +341,7 @@ db.createCollection("alertas_predictivas", {
           bsonType: "string"
         },
         estado: {
-          enum: ["Pendiente", "En revisión", "Atendida", "Descartada"],
+          enum: ["Pendiente", "En revision", "Atendida", "Descartada"],
           description: "Estado de la alerta"
         },
         fecha_atencion: {
@@ -353,20 +353,20 @@ db.createCollection("alertas_predictivas", {
 });
 
 // =====================================================================
-// 2 CREACIÓN DE ÍNDICES PARA OPTIMIZACIÓN
+// 2 CREACION DE INDICES PARA OPTIMIZACION
 // =====================================================================
 
-// Índices para empresas
+// Indices para empresas
 db.empresas.createIndex({ "ruc": 1 }, { unique: true });
 db.empresas.createIndex({ "razon_social": 1 });
 
-// Índices para vehiculos
+// Indices para vehiculos
 db.vehiculos.createIndex({ "placa": 1 }, { unique: true });
 db.vehiculos.createIndex({ "empresa_id": 1 });
 db.vehiculos.createIndex({ "estado_operativo": 1 });
 db.vehiculos.createIndex({ "marca": 1, "modelo": 1 });
 
-// Índices para mantenimientos (críticos para consultas analíticas)
+// Indices para mantenimientos (criticos para consultas analiticas)
 db.mantenimientos.createIndex({ "vehiculo_id": 1 });
 db.mantenimientos.createIndex({ "fecha": -1 });
 db.mantenimientos.createIndex({ "tipo": 1 });
@@ -374,26 +374,26 @@ db.mantenimientos.createIndex({ "falla.categoria": 1 });
 db.mantenimientos.createIndex({ "falla.descripcion": 1 });
 db.mantenimientos.createIndex({ "vehiculo_id": 1, "fecha": -1 });
 
-// Índice compuesto para análisis de costos
+// Indice compuesto para analisis de costos
 db.mantenimientos.createIndex({ "vehiculo_id": 1, "costo": 1 });
 
-// Índices para usuarios
+// Indices para usuarios
 db.usuarios.createIndex({ "nombre_usuario": 1 }, { unique: true });
 db.usuarios.createIndex({ "email": 1 }, { unique: true });
 db.usuarios.createIndex({ "empresa_id": 1 });
 
-// Índices para alertas
+// Indices para alertas
 db.alertas_predictivas.createIndex({ "vehiculo_id": 1 });
 db.alertas_predictivas.createIndex({ "fecha_generacion": -1 });
 db.alertas_predictivas.createIndex({ "estado": 1 });
 
 // =====================================================================
-// 3 INSERCIÓN DE DATOS DE PRUEBA
+// 3 INSERCION DE DATOS DE PRUEBA
 // =====================================================================
 
 // Insertar empresas
 const empresa1 = db.empresas.insertOne({
-  razon_social: "Transportes Rápidos SAC",
+  razon_social: "Transportes Rapidos SAC",
   ruc: "20123456789",
   sector: "Transporte de Carga",
   direccion: "Av. Industrial 123, Lima",
@@ -406,9 +406,9 @@ const empresa1 = db.empresas.insertOne({
 });
 
 const empresa2 = db.empresas.insertOne({
-  razon_social: "Logística del Sur EIRL",
+  razon_social: "Logistica del Sur EIRL",
   ruc: "20987654321",
-  sector: "Logística",
+  sector: "Logistica",
   direccion: "Jr. Comercio 456, Arequipa",
   contacto: {
     telefono: "054-234567",
@@ -421,7 +421,7 @@ const empresa2 = db.empresas.insertOne({
 const empresa3 = db.empresas.insertOne({
   razon_social: "Distribuidora Norte SA",
   ruc: "20456789123",
-  sector: "Distribución",
+  sector: "Distribucion",
   direccion: "Av. Grau 789, Trujillo",
   contacto: {
     telefono: "044-345678",
@@ -431,7 +431,7 @@ const empresa3 = db.empresas.insertOne({
   estado: "Activo"
 });
 
-// Insertar vehículos con componentes embebidos
+// Insertar vehiculos con componentes embebidos
 const vehiculo1 = db.vehiculos.insertOne({
   placa: "ABC-123",
   empresa_id: empresa1.insertedId,
@@ -450,7 +450,7 @@ const vehiculo1 = db.vehiculos.insertOne({
       estado: "Bueno"
     },
     {
-      nombre: "Transmisión I-Shift",
+      nombre: "Transmision I-Shift",
       tipo: "Transmision",
       fecha_instalacion: new Date("2020-01-15"),
       vida_util_km: 400000,
@@ -501,7 +501,7 @@ const vehiculo2 = db.vehiculos.insertOne({
       estado: "Excelente"
     },
     {
-      nombre: "Suspensión Neumática",
+      nombre: "Suspension Neumatica",
       tipo: "Suspension",
       fecha_instalacion: new Date("2021-03-20"),
       vida_util_km: 300000,
@@ -535,7 +535,7 @@ const vehiculo3 = db.vehiculos.insertOne({
       estado: "Regular"
     },
     {
-      nombre: "Sistema Eléctrico 24V",
+      nombre: "Sistema Electrico 24V",
       tipo: "Electrico",
       fecha_instalacion: new Date("2019-05-10"),
       vida_util_km: 250000,
@@ -578,7 +578,7 @@ const vehiculo4 = db.vehiculos.insertOne({
   fecha_registro: new Date("2022-02-15")
 });
 
-// Insertar mantenimientos con información detallada de fallas
+// Insertar mantenimientos con informacion detallada de fallas
 db.mantenimientos.insertMany([
   {
     vehiculo_id: vehiculo1.insertedId,
@@ -586,7 +586,7 @@ db.mantenimientos.insertMany([
       tecnico_id: 1,
       nombre: "Carlos",
       apellido: "Mendoza",
-      especialidad: "Mecánica Diesel",
+      especialidad: "Mecanica Diesel",
       certificacion: true
     },
     fecha: new Date("2024-01-15T08:00:00"),
@@ -604,7 +604,7 @@ db.mantenimientos.insertMany([
       { nombre: "Filtro de aceite", codigo: "FO-001", cantidad: 1, costo_unitario: 45.00 },
       { nombre: "Filtro de aire", codigo: "FA-001", cantidad: 1, costo_unitario: 35.00 }
     ],
-    observaciones: "Vehículo en buen estado general",
+    observaciones: "Vehiculo en buen estado general",
     estado: "Completado",
     calificacion: 5
   },
@@ -613,8 +613,8 @@ db.mantenimientos.insertMany([
     tecnico: {
       tecnico_id: 3,
       nombre: "Luis",
-      apellido: "Rodríguez",
-      especialidad: "Transmisión y Frenos",
+      apellido: "Rodriguez",
+      especialidad: "Transmision y Frenos",
       certificacion: true
     },
     fecha: new Date("2024-02-20T09:30:00"),
@@ -623,7 +623,7 @@ db.mantenimientos.insertMany([
     duracion_minutos: 180,
     kilometraje_registrado: 42000,
     falla: {
-      descripcion: "Revisión de frenos y suspensión",
+      descripcion: "Revision de frenos y suspension",
       categoria: "Frenos",
       severidad: "Media"
     },
@@ -639,7 +639,7 @@ db.mantenimientos.insertMany([
     tecnico: {
       tecnico_id: 2,
       nombre: "Ana",
-      apellido: "García",
+      apellido: "Garcia",
       especialidad: "Electricidad Automotriz",
       certificacion: true
     },
@@ -649,7 +649,7 @@ db.mantenimientos.insertMany([
     duracion_minutos: 480,
     kilometraje_registrado: 65000,
     falla: {
-      descripcion: "Falla en alternador - sistema eléctrico",
+      descripcion: "Falla en alternador - sistema electrico",
       categoria: "Electrico",
       severidad: "Alta",
       causa_raiz: "Desgaste de rodamientos del alternador"
@@ -658,7 +658,7 @@ db.mantenimientos.insertMany([
       { nombre: "Alternador 24V", codigo: "AL-001", cantidad: 1, costo_unitario: 2800.00 },
       { nombre: "Correa de alternador", codigo: "CA-001", cantidad: 1, costo_unitario: 85.00 }
     ],
-    observaciones: "Falla recurrente en sistema eléctrico",
+    observaciones: "Falla recurrente en sistema electrico",
     estado: "Completado",
     calificacion: 4
   },
@@ -667,7 +667,7 @@ db.mantenimientos.insertMany([
     tecnico: {
       tecnico_id: 2,
       nombre: "Ana",
-      apellido: "García",
+      apellido: "Garcia",
       especialidad: "Electricidad Automotriz",
       certificacion: true
     },
@@ -677,14 +677,14 @@ db.mantenimientos.insertMany([
     duracion_minutos: 240,
     kilometraje_registrado: 65500,
     falla: {
-      descripcion: "Reemplazo de batería y cableado",
+      descripcion: "Reemplazo de bateria y cableado",
       categoria: "Electrico",
       severidad: "Alta",
-      causa_raiz: "Batería descargada por falla en alternador"
+      causa_raiz: "Bateria descargada por falla en alternador"
     },
     repuestos_utilizados: [
-      { nombre: "Batería 24V 200Ah", codigo: "BA-001", cantidad: 2, costo_unitario: 950.00 },
-      { nombre: "Cable eléctrico", codigo: "CE-001", cantidad: 10, costo_unitario: 15.00 }
+      { nombre: "Bateria 24V 200Ah", codigo: "BA-001", cantidad: 2, costo_unitario: 950.00 },
+      { nombre: "Cable electrico", codigo: "CE-001", cantidad: 10, costo_unitario: 15.00 }
     ],
     observaciones: "Falla relacionada con problema anterior del alternador",
     estado: "Completado",
@@ -696,7 +696,7 @@ db.mantenimientos.insertMany([
       tecnico_id: 1,
       nombre: "Carlos",
       apellido: "Mendoza",
-      especialidad: "Mecánica Diesel",
+      especialidad: "Mecanica Diesel",
       certificacion: true
     },
     fecha: new Date("2024-03-20T08:00:00"),
@@ -705,7 +705,7 @@ db.mantenimientos.insertMany([
     duracion_minutos: 960,
     kilometraje_registrado: 67000,
     falla: {
-      descripcion: "Overhaul de motor - reparación mayor",
+      descripcion: "Overhaul de motor - reparacion mayor",
       categoria: "Motor",
       severidad: "Critica",
       causa_raiz: "Desgaste excesivo por falta de mantenimiento preventivo"
@@ -725,7 +725,7 @@ db.mantenimientos.insertMany([
       tecnico_id: 1,
       nombre: "Carlos",
       apellido: "Mendoza",
-      especialidad: "Mecánica Diesel",
+      especialidad: "Mecanica Diesel",
       certificacion: true
     },
     fecha: new Date("2024-01-10T10:00:00"),
@@ -745,9 +745,9 @@ db.mantenimientos.insertMany([
     vehiculo_id: vehiculo4.insertedId,
     tecnico: {
       tecnico_id: 4,
-      nombre: "María",
+      nombre: "Maria",
       apellido: "Torres",
-      especialidad: "Mecánica General",
+      especialidad: "Mecanica General",
       certificacion: false
     },
     fecha: new Date("2024-02-05T11:00:00"),
@@ -756,7 +756,7 @@ db.mantenimientos.insertMany([
     duracion_minutos: 90,
     kilometraje_registrado: 14000,
     falla: {
-      descripcion: "Cambio de aceite y rotación de neumáticos",
+      descripcion: "Cambio de aceite y rotacion de neumaticos",
       categoria: "Neumaticos",
       severidad: "Baja"
     },
@@ -772,7 +772,7 @@ db.usuarios.insertMany([
     email: "rsanchez@rapidossac.com",
     nombre_completo: {
       nombre: "Roberto",
-      apellido: "Sánchez"
+      apellido: "Sanchez"
     },
     rol: "Administrador",
     empresa_id: empresa1.insertedId,
@@ -832,20 +832,20 @@ db.alertas_predictivas.insertMany([
     tipo_alerta: "Mantenimiento Programado",
     fecha_generacion: new Date(),
     prioridad: "Media",
-    descripcion: "Vehículo ABC-123 próximo a cumplir 50000 km",
+    descripcion: "Vehiculo ABC-123 proximo a cumplir 50000 km",
     componente_afectado: "General",
     accion_recomendada: "Programar mantenimiento preventivo",
     estado: "Pendiente"
   },
   {
     vehiculo_id: vehiculo3.insertedId,
-    tipo_alerta: "Componente Crítico",
+    tipo_alerta: "Componente Critico",
     fecha_generacion: new Date(),
     prioridad: "Alta",
-    descripcion: "Sistema eléctrico en estado crítico",
-    componente_afectado: "Sistema Eléctrico 24V",
-    accion_recomendada: "Revisión inmediata del sistema eléctrico",
-    estado: "En revisión",
+    descripcion: "Sistema electrico en estado critico",
+    componente_afectado: "Sistema Electrico 24V",
+    accion_recomendada: "Revision inmediata del sistema electrico",
+    estado: "En revision",
     fecha_atencion: new Date("2024-03-20")
   },
   {
@@ -856,18 +856,18 @@ db.alertas_predictivas.insertMany([
     descripcion: "Motor requiere overhaul - desgaste excesivo detectado",
     componente_afectado: "Motor OM471",
     accion_recomendada: "Realizar overhaul de motor urgente",
-    estado: "En revisión"
+    estado: "En revision"
   }
 ]);
 
 print(" Base de datos flotia_nosql creada exitosamente");
-print(" Colecciones creadas con validación JSON Schema");
-print(" Índices creados para optimización");
+print(" Colecciones creadas con validacion JSON Schema");
+print(" Indices creados para optimizacion");
 print(" Datos de prueba insertados");
 print("");
 print(" Resumen:");
 print("- Empresas:", db.empresas.countDocuments());
-print("- Vehículos:", db.vehiculos.countDocuments());
+print("- Vehiculos:", db.vehiculos.countDocuments());
 print("- Mantenimientos:", db.mantenimientos.countDocuments());
 print("- Usuarios:", db.usuarios.countDocuments());
 print("- Alertas:", db.alertas_predictivas.countDocuments());

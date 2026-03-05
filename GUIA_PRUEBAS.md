@@ -1,8 +1,8 @@
-# 🧪 Guía de Pruebas - FlotIA
+# 🧪 Guia de Pruebas - FlotIA
 
-## Cómo Probar el Sistema Completo (SQL Server + MongoDB)
+## Como Probar el Sistema Completo (SQL Server + MongoDB)
 
-Esta guía te permitirá probar ambas bases de datos del proyecto FlotIA paso a paso.
+Esta guia te permitira probar ambas bases de datos del proyecto FlotIA paso a paso.
 
 ---
 
@@ -10,19 +10,19 @@ Esta guía te permitirá probar ambas bases de datos del proyecto FlotIA paso a 
 
 ### Paso 1: Abrir SQL Server Management Studio (SSMS)
 
-1. Buscar **"SQL Server Management Studio"** en el menú de Windows
+1. Buscar **"SQL Server Management Studio"** en el menu de Windows
 2. Abrir SSMS
-3. En la ventana de conexión:
+3. En la ventana de conexion:
    - **Server name:** `localhost` o `.\SQLEXPRESS` o `(localdb)\MSSQLLocalDB`
    - **Authentication:** Windows Authentication
    - Click **Connect**
 
-### Paso 2: Ejecutar Script de Creación
+### Paso 2: Ejecutar Script de Creacion
 
 1. En SSMS, click en **File → Open → File**
 2. Navegar a: `C:\Users\amaro\Documents\FINALDBD\sql\create_tables.sql`
 3. Click **Open**
-4. Presionar **F5** o click en **Execute** (botón verde)
+4. Presionar **F5** o click en **Execute** (boton verde)
 5. Esperar mensaje: "Command(s) completed successfully"
 
 **Verificar:**
@@ -37,7 +37,7 @@ Debe retornar: `FlotIA_DB`
 1. **File → Open → File**
 2. Abrir: `C:\Users\amaro\Documents\FINALDBD\sql\inserts.sql`
 3. Presionar **F5**
-4. Esperar confirmación de inserción
+4. Esperar confirmacion de insercion
 
 **Verificar:**
 ```sql
@@ -59,7 +59,7 @@ SELECT 'Mantenimientos', COUNT(*) FROM Mantenimiento;
 ### Paso 4: Probar Procedimientos Almacenados
 
 ```sql
--- Registrar un nuevo vehículo
+-- Registrar un nuevo vehiculo
 EXEC sp_RegistrarVehiculo 
     @EmpresaID = 1,
     @Placa = 'TEST-999',
@@ -69,7 +69,7 @@ EXEC sp_RegistrarVehiculo
     @Tipo = 'Auto',
     @Kilometraje = 0;
 
--- Verificar que se creó
+-- Verificar que se creo
 SELECT * FROM Vehiculo WHERE Placa = 'TEST-999';
 ```
 
@@ -79,7 +79,7 @@ SELECT * FROM Vehiculo WHERE Placa = 'TEST-999';
 -- Vista de resumen por empresa
 SELECT * FROM vw_ResumenFlotaPorEmpresa;
 
--- Vista de costos por vehículo
+-- Vista de costos por vehiculo
 SELECT TOP 5 * 
 FROM vw_CostosMantenimientoPorVehiculo 
 ORDER BY CostoTotal DESC;
@@ -88,7 +88,7 @@ ORDER BY CostoTotal DESC;
 ### Paso 6: Probar Funciones
 
 ```sql
--- Calcular costo total de mantenimiento del vehículo 1
+-- Calcular costo total de mantenimiento del vehiculo 1
 SELECT dbo.fn_CostoTotalMantenimiento(1) AS CostoTotal;
 
 -- Verificar si tiene mantenimiento pendiente
@@ -99,7 +99,7 @@ FROM Vehiculo v
 WHERE v.VehiculoID = 1;
 ```
 
-### Paso 7: Ejecutar Script de Verificación Completo
+### Paso 7: Ejecutar Script de Verificacion Completo
 
 1. **File → Open → File**
 2. Abrir: `C:\Users\amaro\Documents\FINALDBD\sql\queries_verificacion.sql`
@@ -112,17 +112,17 @@ WHERE v.VehiculoID = 1;
 
 ### Paso 1: Abrir MongoDB Shell
 
-**Opción A: Desde PowerShell**
+**Opcion A: Desde PowerShell**
 ```powershell
 # Abrir PowerShell
 mongosh
 ```
 
-**Opción B: Desde MongoDB Compass**
+**Opcion B: Desde MongoDB Compass**
 1. Abrir **MongoDB Compass**
 2. Conectar a: `mongodb://localhost:27017`
 3. Click **Connect**
-4. Click en el ícono **>_MONGOSH** (abajo)
+4. Click en el icono **>_MONGOSH** (abajo)
 
 ### Paso 2: Verificar Base de Datos
 
@@ -144,9 +144,9 @@ show collections
 ### Paso 3: Verificar Datos Insertados
 
 ```javascript
-// Contar documentos en cada colección
+// Contar documentos en cada coleccion
 print("Empresas:", db.empresas.countDocuments());
-print("Vehículos:", db.vehiculos.countDocuments());
+print("Vehiculos:", db.vehiculos.countDocuments());
 print("Mantenimientos:", db.mantenimientos.countDocuments());
 print("Usuarios:", db.usuarios.countDocuments());
 print("Alertas:", db.alertas_predictivas.countDocuments());
@@ -158,16 +158,16 @@ print("Alertas:", db.alertas_predictivas.countDocuments());
 // Ver una empresa
 db.empresas.findOne()
 
-// Ver un vehículo con sus componentes embebidos
+// Ver un vehiculo con sus componentes embebidos
 db.vehiculos.findOne()
 
 // Ver un usuario
 db.usuarios.findOne()
 ```
 
-### Paso 5: Probar Consultas Analíticas
+### Paso 5: Probar Consultas Analiticas
 
-**Consulta 1: Vehículos por Estado Operativo**
+**Consulta 1: Vehiculos por Estado Operativo**
 ```javascript
 db.vehiculos.aggregate([
   {
@@ -182,7 +182,7 @@ db.vehiculos.aggregate([
 ])
 ```
 
-**Consulta 2: Vehículos con Componentes en Mal Estado**
+**Consulta 2: Vehiculos con Componentes en Mal Estado**
 ```javascript
 db.vehiculos.aggregate([
   { $unwind: "$componentes" },
@@ -203,7 +203,7 @@ db.vehiculos.aggregate([
 ])
 ```
 
-**Consulta 3: Empresas con Cantidad de Vehículos**
+**Consulta 3: Empresas con Cantidad de Vehiculos**
 ```javascript
 db.vehiculos.aggregate([
   {
@@ -228,7 +228,7 @@ db.vehiculos.aggregate([
 ### Paso 6: Verificar Validaciones JSON Schema
 
 ```javascript
-// Intentar insertar un documento inválido (debe fallar)
+// Intentar insertar un documento invalido (debe fallar)
 db.vehiculos.insertOne({
   placa: "INVALIDO"
   // Falta empresa_id, marca, modelo (campos requeridos)
@@ -237,13 +237,13 @@ db.vehiculos.insertOne({
 // Debe mostrar error: "Document failed validation"
 ```
 
-### Paso 7: Verificar Índices
+### Paso 7: Verificar Indices
 
 ```javascript
-// Ver índices de la colección vehiculos
+// Ver indices de la coleccion vehiculos
 db.vehiculos.getIndexes()
 
-// Ver índices de mantenimientos
+// Ver indices de mantenimientos
 db.mantenimientos.getIndexes()
 ```
 
@@ -253,7 +253,7 @@ db.mantenimientos.getIndexes()
 // Obtener ID de una empresa
 const empresa = db.empresas.findOne();
 
-// Insertar un nuevo vehículo
+// Insertar un nuevo vehiculo
 db.vehiculos.insertOne({
   placa: "TEST-001",
   empresa_id: empresa._id,
@@ -273,13 +273,13 @@ db.vehiculos.insertOne({
   fecha_registro: new Date()
 });
 
-// Verificar que se insertó
+// Verificar que se inserto
 db.vehiculos.findOne({ placa: "TEST-001" })
 ```
 
 ---
 
-## 🔍 PARTE 3: Pruebas de Integración
+## 🔍 PARTE 3: Pruebas de Integracion
 
 ### Comparar Datos entre SQL Server y MongoDB
 
@@ -293,7 +293,7 @@ SELECT COUNT(*) AS TotalEmpresas FROM Empresa;
 db.empresas.countDocuments()
 ```
 
-Ambos deberían tener datos consistentes (aunque no necesariamente la misma cantidad, ya que son modelos diferentes).
+Ambos deberian tener datos consistentes (aunque no necesariamente la misma cantidad, ya que son modelos diferentes).
 
 ---
 
@@ -302,25 +302,25 @@ Ambos deberían tener datos consistentes (aunque no necesariamente la misma cant
 ### SQL Server
 - [ ] Base de datos FlotIA_DB creada
 - [ ] 8 tablas creadas correctamente
-- [ ] Datos insertados (4 empresas, 12 vehículos, 16 mantenimientos)
+- [ ] Datos insertados (4 empresas, 12 vehiculos, 16 mantenimientos)
 - [ ] Procedimiento sp_RegistrarVehiculo funciona
 - [ ] Procedimiento sp_RegistrarMantenimiento funciona
 - [ ] Vista vw_ResumenFlotaPorEmpresa muestra datos
 - [ ] Vista vw_CostosMantenimientoPorVehiculo muestra datos
-- [ ] Función fn_CostoTotalMantenimiento retorna valores
-- [ ] Función fn_TieneMantenimientoPendiente funciona
+- [ ] Funcion fn_CostoTotalMantenimiento retorna valores
+- [ ] Funcion fn_TieneMantenimientoPendiente funciona
 
 ### MongoDB
 - [ ] Base de datos flotia_nosql creada
 - [ ] 5 colecciones creadas
 - [ ] Validaciones JSON Schema funcionan
-- [ ] Índices creados correctamente
+- [ ] Indices creados correctamente
 - [ ] Datos insertados en empresas
 - [ ] Datos insertados en vehiculos
 - [ ] Datos insertados en usuarios
-- [ ] Consulta de agregación por estado funciona
-- [ ] Consulta de componentes críticos funciona
-- [ ] Embedded Pattern visible en vehículos (componentes)
+- [ ] Consulta de agregacion por estado funciona
+- [ ] Consulta de componentes criticos funciona
+- [ ] Embedded Pattern visible en vehiculos (componentes)
 
 ---
 
@@ -337,11 +337,11 @@ EXEC sp_RegistrarMantenimiento
     @TecnicoID = 1,
     @Tipo = 'Preventivo',
     @Costo = 500.00,
-    @Descripcion = 'Prueba de transacción',
+    @Descripcion = 'Prueba de transaccion',
     @KilometrajeRegistrado = 50000;
 
 -- Verificar
-SELECT * FROM Mantenimiento WHERE Descripcion = 'Prueba de transacción';
+SELECT * FROM Mantenimiento WHERE Descripcion = 'Prueba de transaccion';
 
 -- Deshacer si es solo prueba
 ROLLBACK;
@@ -349,10 +349,10 @@ ROLLBACK;
 -- COMMIT;
 ```
 
-### MongoDB: Pipeline de Agregación Complejo
+### MongoDB: Pipeline de Agregacion Complejo
 
 ```javascript
-// Análisis completo de flota
+// Analisis completo de flota
 db.vehiculos.aggregate([
   {
     $lookup: {
@@ -395,49 +395,49 @@ Mientras pruebas, captura pantallas de:
 1. **SQL Server:**
    - Object Explorer mostrando FlotIA_DB
    - Resultado de SELECT * FROM vw_ResumenFlotaPorEmpresa
-   - Ejecución exitosa de sp_RegistrarVehiculo
+   - Ejecucion exitosa de sp_RegistrarVehiculo
    - Lista de tablas creadas
 
 2. **MongoDB:**
    - MongoDB Compass mostrando flotia_nosql
    - Resultado de show collections
-   - Resultado de consulta de agregación
-   - Validación JSON Schema
+   - Resultado de consulta de agregacion
+   - Validacion JSON Schema
 
 Guardar en: `docs/evidencias/`
 
 ---
 
-## 🆘 Solución de Problemas
+## 🆘 Solucion de Problemas
 
 ### SQL Server
 
 **Error: "Cannot open database"**
 ```sql
--- Verificar que estás en la base correcta
+-- Verificar que estas en la base correcta
 USE FlotIA_DB;
 GO
 ```
 
 **Error: "Invalid object name"**
-- Asegúrate de haber ejecutado create_tables.sql primero
+- Asegurate de haber ejecutado create_tables.sql primero
 
 ### MongoDB
 
 **Error: "Collection not found"**
 ```javascript
-// Verificar que estás en la base correcta
+// Verificar que estas en la base correcta
 use flotia_nosql
 show collections
 ```
 
 **Error: "Document failed validation"**
-- Revisa que todos los campos requeridos estén presentes
+- Revisa que todos los campos requeridos esten presentes
 - Verifica los tipos de datos (ObjectId, int, double, etc.)
 
 ---
 
-## 🎓 Comandos Útiles de Referencia
+## 🎓 Comandos Utiles de Referencia
 
 ### SQL Server
 ```sql
@@ -447,13 +447,13 @@ SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'
 -- Ver procedimientos
 SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_TYPE = 'PROCEDURE';
 
--- Ver índices
+-- Ver indices
 SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID('Vehiculo');
 ```
 
 ### MongoDB
 ```javascript
-// Ver estructura de colección
+// Ver estructura de coleccion
 db.vehiculos.findOne()
 
 // Contar con filtro
@@ -471,4 +471,4 @@ db.vehiculos.updateOne(
 
 ---
 
-**¡Listo para probar!** Sigue estos pasos en orden y podrás verificar que todo el sistema FlotIA funciona correctamente. 🚀
+**Listo para probar!** Sigue estos pasos en orden y podras verificar que todo el sistema FlotIA funciona correctamente. 🚀

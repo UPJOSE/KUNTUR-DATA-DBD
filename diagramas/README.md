@@ -4,7 +4,7 @@ Esta carpeta contiene los diagramas del modelo de datos del sistema FlotIA.
 
 ## 📋 Contenido
 
-### 1. ERD Físico (SQL Server)
+### 1. ERD Fisico (SQL Server)
 
 **Archivo:** `ERD_Fisico.png` o `ERD_Fisico.pdf`
 
@@ -14,7 +14,7 @@ Esta carpeta contiene los diagramas del modelo de datos del sistema FlotIA.
 - Todas las tablas del modelo relacional
 - Atributos con tipos de datos
 - Claves primarias (PK)
-- Claves foráneas (FK)
+- Claves foraneas (FK)
 - Relaciones entre tablas
 - Cardinalidad (1:1, 1:N, N:M)
 
@@ -38,7 +38,7 @@ Esta carpeta contiene los diagramas del modelo de datos del sistema FlotIA.
 - Estructura de colecciones MongoDB
 - Validaciones JSON Schema
 - Tipos de datos BSON
-- Patrones de diseño aplicados
+- Patrones de diseno aplicados
 - Referencias entre colecciones
 
 **Colecciones incluidas:**
@@ -48,21 +48,21 @@ Esta carpeta contiene los diagramas del modelo de datos del sistema FlotIA.
 - usuarios
 - alertas_predictivas
 
-## 🎨 Cómo Crear los Diagramas
+## 🎨 Como Crear los Diagramas
 
-### ERD Físico con ERD Editor (VS Code)
+### ERD Fisico con ERD Editor (VS Code)
 
-1. Instalar extensión "ERD Editor" en VS Code
+1. Instalar extension "ERD Editor" en VS Code
 2. Crear archivo `ERD_FlotIA.vuerd.json`
 3. Abrir con ERD Editor
-4. Agregar entidades y relaciones según modelo
+4. Agregar entidades y relaciones segun modelo
 5. Exportar como PNG/PDF
 
-### ERD Físico con draw.io
+### ERD Fisico con draw.io
 
 1. Ir a https://app.diagrams.net/
 2. Nuevo diagrama → Entity Relation
-3. Diseñar según modelo SQL Server
+3. Disenar segun modelo SQL Server
 4. Exportar como PNG/PDF
 
 ### Diagrama Documental con Hackolade
@@ -71,21 +71,21 @@ Esta carpeta contiene los diagramas del modelo de datos del sistema FlotIA.
 2. File → New Model → MongoDB
 3. Crear base de datos `flotia_nosql`
 4. Agregar colecciones con validaciones
-5. Aplicar patrones de diseño
+5. Aplicar patrones de diseno
 6. File → Export → PDF
 
 ## 📸 Evidencias Requeridas
 
-Además de los diagramas principales, incluir capturas de:
+Ademas de los diagramas principales, incluir capturas de:
 
 - Diagrama completo en la herramienta
 - Detalle de validaciones JSON Schema
 - Vista de propiedades de entidades/colecciones
-- Exportación final
+- Exportacion final
 
 ## ✅ Checklist
 
-- [ ] ERD físico creado
+- [ ] ERD fisico creado
 - [ ] ERD exportado a PNG/PDF de alta calidad
 - [ ] Diagrama Hackolade creado
 - [ ] Diagrama Hackolade exportado a PDF
@@ -95,22 +95,22 @@ Además de los diagramas principales, incluir capturas de:
 - [ ] Relaciones claramente marcadas
 - [ ] Validaciones documentadas (Hackolade)
 
-## 📐 Estándares de Diseño
+## 📐 Estandares de Diseno
 
-### ERD Físico
+### ERD Fisico
 
-- Usar notación crow's foot para cardinalidad
+- Usar notacion crow's foot para cardinalidad
 - Marcar claramente PK y FK
 - Incluir tipos de datos y constraints
 - Usar colores para diferenciar tipos de tablas
-- Organizar de forma lógica (maestras arriba, transaccionales abajo)
+- Organizar de forma logica (maestras arriba, transaccionales abajo)
 
 ### Diagrama Hackolade
 
 - Documentar todos los campos requeridos
-- Especificar enums y patrones de validación
+- Especificar enums y patrones de validacion
 - Marcar referencias entre colecciones
-- Incluir descripción de patrones aplicados
+- Incluir descripcion de patrones aplicados
 - Usar colores para diferenciar tipos de datos
 
 ## 🔗 Referencias
@@ -118,4 +118,4 @@ Además de los diagramas principales, incluir capturas de:
 - [ERD Editor](https://marketplace.visualstudio.com/items?itemName=dineug.vuerd-vscode)
 - [draw.io](https://app.diagrams.net/)
 - [Hackolade](https://hackolade.com/)
-- [Notación Crow's Foot](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
+- [Notacion Crow's Foot](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)

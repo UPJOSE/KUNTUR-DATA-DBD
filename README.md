@@ -1,17 +1,17 @@
-# 🚛 FlotIA - Sistema de Gestión Inteligente de Flotas
+# 🚛 FlotIA - Sistema de Gestion Inteligente de Flotas
 
 **Startup:** KunturData  
-**Proyecto:** Sistema Híbrido de Base de Datos  
-**Tecnologías:** SQL Server + MongoDB
+**Proyecto:** Sistema Hibrido de Base de Datos  
+**Tecnologias:** SQL Server + MongoDB
 
 ---
 
 ## 📋 Tabla de Contenidos
 
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Arquitectura Híbrida](#arquitectura-híbrida)
+- [Descripcion del Proyecto](#descripcion-del-proyecto)
+- [Arquitectura Hibrida](#arquitectura-hibrida)
 - [Estructura del Proyecto](#estructura-del-proyecto)
-- [Instalación y Configuración](#instalación-y-configuración)
+- [Instalacion y Configuracion](#instalacion-y-configuracion)
 - [Modelo Relacional (SQL Server)](#modelo-relacional-sql-server)
 - [Modelo No Relacional (MongoDB)](#modelo-no-relacional-mongodb)
 - [Consultas Implementadas](#consultas-implementadas)
@@ -20,51 +20,51 @@
 
 ---
 
-## 🎯 Descripción del Proyecto
+## 🎯 Descripcion del Proyecto
 
-**FlotIA** es un sistema de gestión inteligente de flotas vehiculares que implementa una arquitectura híbrida combinando bases de datos relacionales (SQL Server) y no relacionales (MongoDB) para optimizar el almacenamiento, consulta y análisis de datos de mantenimiento vehicular.
+**FlotIA** es un sistema de gestion inteligente de flotas vehiculares que implementa una arquitectura hibrida combinando bases de datos relacionales (SQL Server) y no relacionales (MongoDB) para optimizar el almacenamiento, consulta y analisis de datos de mantenimiento vehicular.
 
 ### Objetivos
 
-- ✅ Gestionar eficientemente flotas vehiculares de múltiples empresas
+- ✅ Gestionar eficientemente flotas vehiculares de multiples empresas
 - ✅ Registrar y analizar mantenimientos preventivos, correctivos y predictivos
-- ✅ Identificar fallas recurrentes mediante análisis de datos históricos
+- ✅ Identificar fallas recurrentes mediante analisis de datos historicos
 - ✅ Generar alertas predictivas basadas en patrones de uso
-- ✅ Optimizar costos de mantenimiento mediante análisis inteligente
+- ✅ Optimizar costos de mantenimiento mediante analisis inteligente
 
 ---
 
-## 🏗️ Arquitectura Híbrida
+## 🏗️ Arquitectura Hibrida
 
 ### Modelo Relacional (SQL Server)
 
-**Uso:** Gestión estructurada de entidades maestras con integridad referencial
+**Uso:** Gestion estructurada de entidades maestras con integridad referencial
 
 **Entidades:**
 - `Empresa` - Datos de empresas clientes
-- `Vehiculo` - Información de vehículos de la flota
-- `Tecnico` - Personal técnico de mantenimiento
-- `Componente` - Componentes de vehículos
+- `Vehiculo` - Informacion de vehiculos de la flota
+- `Tecnico` - Personal tecnico de mantenimiento
+- `Componente` - Componentes de vehiculos
 - `Mantenimiento` - Registros transaccionales de mantenimientos
-- `PlanMantenimiento` - Programación de mantenimientos
+- `PlanMantenimiento` - Programacion de mantenimientos
 - `Usuario` - Usuarios del sistema
 - `Reporte` - Reportes generados
 
 ### Modelo No Relacional (MongoDB)
 
-**Uso:** Análisis masivo de datos, historial y escalabilidad IoT
+**Uso:** Analisis masivo de datos, historial y escalabilidad IoT
 
 **Colecciones:**
-- `empresas` - Datos empresariales con validación
-- `vehiculos` - Vehículos con componentes embebidos (Embedded Pattern)
+- `empresas` - Datos empresariales con validacion
+- `vehiculos` - Vehiculos con componentes embebidos (Embedded Pattern)
 - `mantenimientos` - Historial completo con referencias (Reference Pattern)
-- `usuarios` - Gestión de usuarios y permisos
+- `usuarios` - Gestion de usuarios y permisos
 - `alertas_predictivas` - Sistema de alertas inteligentes
 
 **Patrones NoSQL Aplicados:**
-- **Embedded Pattern:** Componentes dentro de vehículos
+- **Embedded Pattern:** Componentes dentro de vehiculos
 - **Reference Pattern:** Mantenimientos → vehiculo_id
-- **Subset Pattern:** Resumen de mantenimientos en vehículos
+- **Subset Pattern:** Resumen de mantenimientos en vehiculos
 
 ---
 
@@ -74,20 +74,20 @@
 FINALDBD/
 │
 ├── sql/
-│   ├── create_tables.sql      # Creación de tablas, índices, procedimientos
+│   ├── create_tables.sql      # Creacion de tablas, indices, procedimientos
 │   └── inserts.sql            # Datos de prueba
 │
 ├── nosql/
-│   ├── collections.js         # Creación de colecciones con validación
-│   └── queries.js             # Consultas analíticas (8+ consultas)
+│   ├── collections.js         # Creacion de colecciones con validacion
+│   └── queries.js             # Consultas analiticas (8+ consultas)
 │
 ├── diagramas/
 │   ├── ERD_Fisico.png         # Diagrama ERD (ERD Editor)
 │   └── Hackolade_FlotIA.pdf   # Diagrama documental MongoDB
 │
 ├── docs/
-│   ├── Capitulo_III.docx      # Documentación técnica
-│   ├── Capitulo_IV.docx       # Análisis y resultados
+│   ├── Capitulo_III.docx      # Documentacion tecnica
+│   ├── Capitulo_IV.docx       # Analisis y resultados
 │   └── evidencias/            # Capturas de pantalla
 │
 ├── .gitignore
@@ -96,7 +96,7 @@ FINALDBD/
 
 ---
 
-## 🚀 Instalación y Configuración
+## 🚀 Instalacion y Configuracion
 
 ### Requisitos Previos
 
@@ -112,7 +112,7 @@ FINALDBD/
 # 1. Abrir SQL Server Management Studio (SSMS)
 # 2. Conectarse al servidor local
 
-# 3. Ejecutar script de creación
+# 3. Ejecutar script de creacion
 # Abrir: sql/create_tables.sql
 # Ejecutar (F5)
 
@@ -120,7 +120,7 @@ FINALDBD/
 # Abrir: sql/inserts.sql
 # Ejecutar (F5)
 
-# 5. Verificar creación
+# 5. Verificar creacion
 USE FlotIA_DB;
 GO
 SELECT * FROM vw_ResumenFlotaPorEmpresa;
@@ -138,7 +138,7 @@ mongosh
 # 3. Ejecutar script de colecciones
 load("C:/Users/amaro/Documents/FINALDBD/nosql/collections.js")
 
-# 4. Ejecutar consultas analíticas
+# 4. Ejecutar consultas analiticas
 load("C:/Users/amaro/Documents/FINALDBD/nosql/queries.js")
 
 # 5. Verificar en MongoDB Compass
@@ -152,29 +152,29 @@ load("C:/Users/amaro/Documents/FINALDBD/nosql/queries.js")
 
 ### Diagrama ERD
 
-El diagrama ERD físico se encuentra en: `diagramas/ERD_Fisico.png`
+El diagrama ERD fisico se encuentra en: `diagramas/ERD_Fisico.png`
 
 ### Tablas Principales
 
-| Tabla | Descripción | Registros |
+| Tabla | Descripcion | Registros |
 |-------|-------------|-----------|
 | `Empresa` | Empresas clientes | 4 |
-| `Vehiculo` | Vehículos de flota | 12 |
-| `Tecnico` | Personal técnico | 6 |
+| `Vehiculo` | Vehiculos de flota | 12 |
+| `Tecnico` | Personal tecnico | 6 |
 | `Mantenimiento` | Historial de mantenimientos | 16 |
 | `Componente` | Componentes vehiculares | 10 |
 
 ### Procedimientos Almacenados
 
-- `sp_RegistrarVehiculo` - Registrar nuevo vehículo
+- `sp_RegistrarVehiculo` - Registrar nuevo vehiculo
 - `sp_RegistrarMantenimiento` - Registrar mantenimiento
 - `sp_ActualizarKilometraje` - Actualizar kilometraje
 - `sp_ObtenerHistorialMantenimiento` - Consultar historial
 
-### Vistas Analíticas
+### Vistas Analiticas
 
 - `vw_ResumenFlotaPorEmpresa` - Resumen de flota por empresa
-- `vw_CostosMantenimientoPorVehiculo` - Costos por vehículo
+- `vw_CostosMantenimientoPorVehiculo` - Costos por vehiculo
 
 ### Funciones
 
@@ -191,10 +191,10 @@ El diagrama Hackolade se encuentra en: `diagramas/Hackolade_FlotIA.pdf`
 
 ### Validaciones JSON Schema
 
-Todas las colecciones implementan validación estricta:
+Todas las colecciones implementan validacion estricta:
 
 ```javascript
-// Ejemplo: Validación de vehículos
+// Ejemplo: Validacion de vehiculos
 {
   bsonType: "object",
   required: ["placa", "empresa_id", "marca", "modelo"],
@@ -207,10 +207,10 @@ Todas las colecciones implementan validación estricta:
 }
 ```
 
-### Índices Creados
+### Indices Creados
 
 ```javascript
-// Índices para optimización de consultas
+// Indices para optimizacion de consultas
 db.vehiculos.createIndex({ "placa": 1 }, { unique: true });
 db.mantenimientos.createIndex({ "vehiculo_id": 1, "fecha": -1 });
 db.mantenimientos.createIndex({ "falla.categoria": 1 });
@@ -220,31 +220,31 @@ db.mantenimientos.createIndex({ "falla.categoria": 1 });
 
 ## 🔍 Consultas Implementadas
 
-### Consultas Obligatorias (Mínimo 2 por integrante)
+### Consultas Obligatorias (Minimo 2 por integrante)
 
 #### Integrante 1
 
 1. **Fallas Recurrentes** - Identificar fallas con 3+ ocurrencias
-2. **Costo Total por Vehículo** - Análisis de gastos por vehículo
+2. **Costo Total por Vehiculo** - Analisis de gastos por vehiculo
 
 #### Integrante 2
 
-3. **Vehículos Problemáticos** - Mayor frecuencia de mantenimiento correctivo
-4. **Costos por Categoría de Falla** - Análisis por tipo de falla
+3. **Vehiculos Problematicos** - Mayor frecuencia de mantenimiento correctivo
+4. **Costos por Categoria de Falla** - Analisis por tipo de falla
 
 #### Integrante 3
 
-5. **Rendimiento de Técnicos** - Evaluación de desempeño técnico
-6. **Distribución por Estado** - Vehículos por empresa y estado operativo
+5. **Rendimiento de Tecnicos** - Evaluacion de desempeno tecnico
+6. **Distribucion por Estado** - Vehiculos por empresa y estado operativo
 
 #### Integrante 4
 
-7. **Componentes Críticos** - Componentes en mal estado
+7. **Componentes Criticos** - Componentes en mal estado
 8. **Tendencia Temporal** - Mantenimientos por mes
 
 ### Consultas Avanzadas
 
-- **ROI Negativo** - Vehículos con mayor costo vs antigüedad
+- **ROI Negativo** - Vehiculos con mayor costo vs antigüedad
 - **Dashboard de Alertas** - Alertas pendientes por prioridad
 
 ---
@@ -257,21 +257,21 @@ db.mantenimientos.createIndex({ "falla.categoria": 1 });
 
 - [ ] Captura de SSMS mostrando base de datos `FlotIA_DB`
 - [ ] Captura de tablas creadas (Object Explorer)
-- [ ] Captura de ejecución de `create_tables.sql`
-- [ ] Captura de ejecución de `inserts.sql`
+- [ ] Captura de ejecucion de `create_tables.sql`
+- [ ] Captura de ejecucion de `inserts.sql`
 - [ ] Captura de resultados de vista `vw_ResumenFlotaPorEmpresa`
-- [ ] Captura de ejecución de procedimiento `sp_RegistrarVehiculo`
+- [ ] Captura de ejecucion de procedimiento `sp_RegistrarVehiculo`
 - [ ] Captura de diagrama ERD en ERD Editor
 
 #### MongoDB
 
 - [ ] Captura de MongoDB Compass mostrando base `flotia_nosql`
 - [ ] Captura de colecciones creadas
-- [ ] Captura de validación JSON Schema en una colección
-- [ ] Captura de índices creados
-- [ ] Captura de ejecución de `collections.js`
+- [ ] Captura de validacion JSON Schema en una coleccion
+- [ ] Captura de indices creados
+- [ ] Captura de ejecucion de `collections.js`
 - [ ] Captura de resultados de consulta "Fallas Recurrentes"
-- [ ] Captura de resultados de consulta "Costo Total por Vehículo"
+- [ ] Captura de resultados de consulta "Costo Total por Vehiculo"
 - [ ] Captura de diagrama Hackolade
 
 #### Git/GitHub
@@ -280,7 +280,7 @@ db.mantenimientos.createIndex({ "falla.categoria": 1 });
 - [ ] Captura de commits con Conventional Commits
 - [ ] Captura de archivo `.gitignore`
 
-### Ubicación de Evidencias
+### Ubicacion de Evidencias
 
 Guardar todas las capturas en: `docs/evidencias/`
 
@@ -295,20 +295,20 @@ Nomenclatura sugerida:
 
 ## 🎥 Videos Requeridos
 
-### Video 1: Exposición del Proyecto (10-15 min)
+### Video 1: Exposicion del Proyecto (10-15 min)
 
 **Contenido:**
-1. Introducción al problema y solución
-2. Demostración de arquitectura híbrida
-3. Ejecución de scripts SQL Server
-4. Ejecución de scripts MongoDB
-5. Demostración de consultas analíticas
+1. Introduccion al problema y solucion
+2. Demostracion de arquitectura hibrida
+3. Ejecucion de scripts SQL Server
+4. Ejecucion de scripts MongoDB
+5. Demostracion de consultas analiticas
 6. Conclusiones y aprendizajes
 
 ### Video 2: About-the-Team (3-5 min)
 
 **Contenido:**
-1. Presentación de cada integrante
+1. Presentacion de cada integrante
 2. Roles y responsabilidades
 3. Experiencia del trabajo en equipo
 4. Reflexiones finales
@@ -319,31 +319,31 @@ Nomenclatura sugerida:
 
 ### Integrante 1
 - **Nombre:** [Nombre Completo]
-- **Código:** [Código Estudiante]
+- **Codigo:** [Codigo Estudiante]
 - **Responsabilidades:** 
-  - Diseño del modelo relacional
+  - Diseno del modelo relacional
   - Consultas de fallas recurrentes y costos
 
 ### Integrante 2
 - **Nombre:** [Nombre Completo]
-- **Código:** [Código Estudiante]
+- **Codigo:** [Codigo Estudiante]
 - **Responsabilidades:**
-  - Implementación de procedimientos almacenados
-  - Análisis de vehículos problemáticos
+  - Implementacion de procedimientos almacenados
+  - Analisis de vehiculos problematicos
 
 ### Integrante 3
 - **Nombre:** [Nombre Completo]
-- **Código:** [Código Estudiante]
+- **Codigo:** [Codigo Estudiante]
 - **Responsabilidades:**
-  - Diseño del modelo no relacional
-  - Análisis de rendimiento de técnicos
+  - Diseno del modelo no relacional
+  - Analisis de rendimiento de tecnicos
 
 ### Integrante 4
 - **Nombre:** [Nombre Completo]
-- **Código:** [Código Estudiante]
+- **Codigo:** [Codigo Estudiante]
 - **Responsabilidades:**
-  - Implementación de validaciones MongoDB
-  - Análisis de componentes críticos
+  - Implementacion de validaciones MongoDB
+  - Analisis de componentes criticos
 
 ---
 
@@ -351,29 +351,29 @@ Nomenclatura sugerida:
 
 ### Conventional Commits
 
-Este proyecto utiliza el estándar de Conventional Commits:
+Este proyecto utiliza el estandar de Conventional Commits:
 
 ```bash
 # Ejemplos de commits
-feat: creación de colección mantenimientos con validación
-fix: corrección validación JSON en vehiculos
-docs: agregado diagrama ERD físico
-refactor: optimización de índices en MongoDB
-test: agregadas consultas de verificación
+feat: creacion de coleccion mantenimientos con validacion
+fix: correccion validacion JSON en vehiculos
+docs: agregado diagrama ERD fisico
+refactor: optimizacion de indices en MongoDB
+test: agregadas consultas de verificacion
 ```
 
 ### Tipos de Commits
 
 - `feat:` Nueva funcionalidad
-- `fix:` Corrección de errores
-- `docs:` Documentación
-- `refactor:` Refactorización de código
+- `fix:` Correccion de errores
+- `docs:` Documentacion
+- `refactor:` Refactorizacion de codigo
 - `test:` Pruebas
 - `chore:` Tareas de mantenimiento
 
 ---
 
-## 🔧 Comandos Útiles
+## 🔧 Comandos Utiles
 
 ### SQL Server
 
@@ -400,7 +400,7 @@ show collections
 // Contar documentos
 db.vehiculos.countDocuments()
 
-// Ver validación de colección
+// Ver validacion de coleccion
 db.getCollectionInfos({name: "vehiculos"})
 
 // Ejecutar consulta
@@ -413,7 +413,7 @@ db.mantenimientos.aggregate([
 
 ## 📚 Recursos y Referencias
 
-### Documentación Oficial
+### Documentacion Oficial
 
 - [SQL Server Documentation](https://docs.microsoft.com/en-us/sql/)
 - [MongoDB Manual](https://docs.mongodb.com/manual/)
@@ -431,7 +431,7 @@ db.mantenimientos.aggregate([
 ## ✅ Checklist de Entregables TF1
 
 ### Diagramas
-- [ ] ERD físico creado en ERD Editor
+- [ ] ERD fisico creado en ERD Editor
 - [ ] Diagrama documental creado en Hackolade
 - [ ] Ambos diagramas exportados a PDF/PNG
 
@@ -439,16 +439,16 @@ db.mantenimientos.aggregate([
 - [ ] `create_tables.sql` completo y funcional
 - [ ] `inserts.sql` con datos de prueba
 - [ ] `collections.js` con validaciones JSON
-- [ ] `queries.js` con mínimo 8 consultas
+- [ ] `queries.js` con minimo 8 consultas
 
-### Documentación
-- [ ] Capítulo III completo
-- [ ] Capítulo IV completo
+### Documentacion
+- [ ] Capitulo III completo
+- [ ] Capitulo IV completo
 - [ ] README.md actualizado
 - [ ] Evidencias capturadas
 
 ### Videos
-- [ ] Video de exposición (10-15 min)
+- [ ] Video de exposicion (10-15 min)
 - [ ] Video About-the-Team (3-5 min)
 
 ### Repositorio
@@ -469,9 +469,9 @@ db.mantenimientos.aggregate([
 
 ## 📄 Licencia
 
-Este proyecto es parte de un trabajo académico para el curso de Fundamentos de Base de Datos.
+Este proyecto es parte de un trabajo academico para el curso de Fundamentos de Base de Datos.
 
 ---
 
-**Última actualización:** Marzo 2024  
-**Versión:** 1.0.0
+**Ultima actualizacion:** Marzo 2024  
+**Version:** 1.0.0

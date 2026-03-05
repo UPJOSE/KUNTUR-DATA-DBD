@@ -7,7 +7,7 @@ const empresa1_id = empresas[0]._id;
 const empresa2_id = empresas[1]._id;
 const empresa3_id = empresas[2]._id;
 
-// Insertar vehículos
+// Insertar vehiculos
 const vehiculosResult = db.vehiculos.insertMany([
   {
     placa: "ABC-123",
@@ -27,7 +27,7 @@ const vehiculosResult = db.vehiculos.insertMany([
         estado: "Bueno"
       },
       {
-        nombre: "Transmisión I-Shift",
+        nombre: "Transmision I-Shift",
         tipo: "Transmision",
         fecha_instalacion: new Date("2020-01-15"),
         vida_util_km: 400000,
@@ -86,7 +86,7 @@ const vehiculosResult = db.vehiculos.insertMany([
         estado: "Regular"
       },
       {
-        nombre: "Sistema Eléctrico 24V",
+        nombre: "Sistema Electrico 24V",
         tipo: "Electrico",
         fecha_instalacion: new Date("2019-05-10"),
         vida_util_km: 250000,
@@ -129,9 +129,9 @@ const vehiculosResult = db.vehiculos.insertMany([
   }
 ]);
 
-print("Vehículos insertados:", vehiculosResult.insertedIds);
+print("Vehiculos insertados:", vehiculosResult.insertedIds);
 
-// Obtener IDs de vehículos
+// Obtener IDs de vehiculos
 const vehiculos = db.vehiculos.find().toArray();
 const vehiculo1_id = vehiculos[0]._id;
 const vehiculo2_id = vehiculos[1]._id;
@@ -146,7 +146,7 @@ const mantResult = db.mantenimientos.insertMany([
       tecnico_id: 1,
       nombre: "Carlos",
       apellido: "Mendoza",
-      especialidad: "Mecánica Diesel",
+      especialidad: "Mecanica Diesel",
       certificacion: true
     },
     fecha: new Date("2024-01-15T08:00:00"),
@@ -167,7 +167,7 @@ const mantResult = db.mantenimientos.insertMany([
     tecnico: {
       tecnico_id: 2,
       nombre: "Ana",
-      apellido: "García",
+      apellido: "Garcia",
       especialidad: "Electricidad Automotriz",
       certificacion: true
     },
@@ -177,7 +177,7 @@ const mantResult = db.mantenimientos.insertMany([
     duracion_minutos: 480,
     kilometraje_registrado: 65000,
     falla: {
-      descripcion: "Falla en alternador - sistema eléctrico",
+      descripcion: "Falla en alternador - sistema electrico",
       categoria: "Electrico",
       severidad: "Alta",
       causa_raiz: "Desgaste de rodamientos del alternador"
@@ -190,7 +190,7 @@ const mantResult = db.mantenimientos.insertMany([
     tecnico: {
       tecnico_id: 2,
       nombre: "Ana",
-      apellido: "García",
+      apellido: "Garcia",
       especialidad: "Electricidad Automotriz",
       certificacion: true
     },
@@ -200,10 +200,10 @@ const mantResult = db.mantenimientos.insertMany([
     duracion_minutos: 240,
     kilometraje_registrado: 65500,
     falla: {
-      descripcion: "Reemplazo de batería y cableado",
+      descripcion: "Reemplazo de bateria y cableado",
       categoria: "Electrico",
       severidad: "Alta",
-      causa_raiz: "Batería descargada por falla en alternador"
+      causa_raiz: "Bateria descargada por falla en alternador"
     },
     estado: "Completado",
     calificacion: 4
@@ -213,7 +213,7 @@ const mantResult = db.mantenimientos.insertMany([
     tecnico: {
       tecnico_id: 2,
       nombre: "Ana",
-      apellido: "García",
+      apellido: "Garcia",
       especialidad: "Electricidad Automotriz",
       certificacion: true
     },
@@ -223,7 +223,7 @@ const mantResult = db.mantenimientos.insertMany([
     duracion_minutos: 240,
     kilometraje_registrado: 65700,
     falla: {
-      descripcion: "Reparación sistema eléctrico completo",
+      descripcion: "Reparacion sistema electrico completo",
       categoria: "Electrico",
       severidad: "Alta"
     },
@@ -236,7 +236,7 @@ const mantResult = db.mantenimientos.insertMany([
       tecnico_id: 1,
       nombre: "Carlos",
       apellido: "Mendoza",
-      especialidad: "Mecánica Diesel",
+      especialidad: "Mecanica Diesel",
       certificacion: true
     },
     fecha: new Date("2024-01-10T10:00:00"),
@@ -256,9 +256,9 @@ const mantResult = db.mantenimientos.insertMany([
     vehiculo_id: vehiculo4_id,
     tecnico: {
       tecnico_id: 4,
-      nombre: "María",
+      nombre: "Maria",
       apellido: "Torres",
-      especialidad: "Mecánica General",
+      especialidad: "Mecanica General",
       certificacion: false
     },
     fecha: new Date("2024-02-05T11:00:00"),
@@ -267,7 +267,7 @@ const mantResult = db.mantenimientos.insertMany([
     duracion_minutos: 90,
     kilometraje_registrado: 14000,
     falla: {
-      descripcion: "Cambio de aceite y rotación de neumáticos",
+      descripcion: "Cambio de aceite y rotacion de neumaticos",
       categoria: "Neumaticos",
       severidad: "Baja"
     },
@@ -285,20 +285,20 @@ const alertasResult = db.alertas_predictivas.insertMany([
     tipo_alerta: "Mantenimiento Programado",
     fecha_generacion: new Date(),
     prioridad: "Media",
-    descripcion: "Vehículo ABC-123 próximo a cumplir 50000 km",
+    descripcion: "Vehiculo ABC-123 proximo a cumplir 50000 km",
     componente_afectado: "General",
     accion_recomendada: "Programar mantenimiento preventivo",
     estado: "Pendiente"
   },
   {
     vehiculo_id: vehiculo3_id,
-    tipo_alerta: "Componente Crítico",
+    tipo_alerta: "Componente Critico",
     fecha_generacion: new Date(),
     prioridad: "Alta",
-    descripcion: "Sistema eléctrico en estado crítico",
-    componente_afectado: "Sistema Eléctrico 24V",
-    accion_recomendada: "Revisión inmediata del sistema eléctrico",
-    estado: "En revisión",
+    descripcion: "Sistema electrico en estado critico",
+    componente_afectado: "Sistema Electrico 24V",
+    accion_recomendada: "Revision inmediata del sistema electrico",
+    estado: "En revision",
     fecha_atencion: new Date("2024-03-20")
   },
   {
@@ -309,7 +309,7 @@ const alertasResult = db.alertas_predictivas.insertMany([
     descripcion: "Motor requiere overhaul - desgaste excesivo detectado",
     componente_afectado: "Motor OM471",
     accion_recomendada: "Realizar overhaul de motor urgente",
-    estado: "En revisión"
+    estado: "En revision"
   }
 ]);
 
@@ -318,7 +318,7 @@ print("Alertas insertadas:", alertasResult.insertedIds);
 // Resumen final
 print("\n=== RESUMEN FINAL ===");
 print("Empresas:", db.empresas.countDocuments());
-print("Vehículos:", db.vehiculos.countDocuments());
+print("Vehiculos:", db.vehiculos.countDocuments());
 print("Mantenimientos:", db.mantenimientos.countDocuments());
 print("Usuarios:", db.usuarios.countDocuments());
 print("Alertas:", db.alertas_predictivas.countDocuments());

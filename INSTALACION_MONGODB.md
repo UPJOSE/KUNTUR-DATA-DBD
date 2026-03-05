@@ -1,6 +1,6 @@
-# 🍃 Guía de Instalación de MongoDB en Windows
+# 🍃 Guia de Instalacion de MongoDB en Windows
 
-## Opción 1: Instalación Completa (Recomendada)
+## Opcion 1: Instalacion Completa (Recomendada)
 
 ### Paso 1: Descargar MongoDB Community Edition
 
@@ -23,13 +23,13 @@
    - **Data Directory:** `C:\Program Files\MongoDB\Server\7.0\data\`
    - **Log Directory:** `C:\Program Files\MongoDB\Server\7.0\log\`
    - Click **Next**
-   - **Install MongoDB Compass** ✅ (dejar marcado - interfaz gráfica)
+   - **Install MongoDB Compass** ✅ (dejar marcado - interfaz grafica)
    - Click **Next** → **Install**
 
-3. Esperar a que termine la instalación
+3. Esperar a que termine la instalacion
 4. Click **Finish**
 
-### Paso 3: Verificar Instalación
+### Paso 3: Verificar Instalacion
 
 Abrir PowerShell o CMD y ejecutar:
 
@@ -37,19 +37,19 @@ Abrir PowerShell o CMD y ejecutar:
 mongod --version
 ```
 
-Debería mostrar algo como:
+Deberia mostrar algo como:
 ```
 db version v7.0.x
 Build Info: ...
 ```
 
-### Paso 4: Verificar que el Servicio está Corriendo
+### Paso 4: Verificar que el Servicio esta Corriendo
 
 ```powershell
 # Ver estado del servicio
 Get-Service MongoDB
 
-# Si no está corriendo, iniciarlo
+# Si no esta corriendo, iniciarlo
 net start MongoDB
 ```
 
@@ -59,7 +59,7 @@ net start MongoDB
 mongosh
 ```
 
-Debería conectarse y mostrar:
+Deberia conectarse y mostrar:
 ```
 Current Mongosh Log ID: ...
 Connecting to: mongodb://127.0.0.1:27017
@@ -67,7 +67,7 @@ Connecting to: mongodb://127.0.0.1:27017
 
 ---
 
-## Opción 2: Instalación Rápida con Chocolatey
+## Opcion 2: Instalacion Rapida con Chocolatey
 
 Si tienes Chocolatey instalado:
 
@@ -78,7 +78,7 @@ choco install mongodb mongodb-shell mongodb-compass
 
 ---
 
-## Opción 3: Instalación Portable (Sin Instalador)
+## Opcion 3: Instalacion Portable (Sin Instalador)
 
 ### Paso 1: Descargar ZIP
 
@@ -111,9 +111,9 @@ cd C:\mongodb\bin
 
 ## 🚀 Ejecutar Scripts de FlotIA
 
-Una vez MongoDB esté instalado y corriendo:
+Una vez MongoDB este instalado y corriendo:
 
-### Método 1: Desde mongosh (Recomendado)
+### Metodo 1: Desde mongosh (Recomendado)
 
 ```javascript
 // 1. Conectar a MongoDB
@@ -131,7 +131,7 @@ show collections
 db.vehiculos.countDocuments()
 ```
 
-### Método 2: Desde línea de comandos
+### Metodo 2: Desde linea de comandos
 
 ```powershell
 # Ejecutar script directamente
@@ -139,22 +139,22 @@ mongosh < "C:\Users\amaro\Documents\FINALDBD\nosql\collections.js"
 mongosh < "C:\Users\amaro\Documents\FINALDBD\nosql\queries.js"
 ```
 
-### Método 3: Usando MongoDB Compass (Interfaz Gráfica)
+### Metodo 3: Usando MongoDB Compass (Interfaz Grafica)
 
 1. Abrir **MongoDB Compass**
 2. Conectar a: `mongodb://localhost:27017`
 3. Click en **Connect**
 4. Crear nueva base de datos: `flotia_nosql`
 5. Copiar y pegar el contenido de `collections.js` en el shell de Compass
-6. Ejecutar línea por línea o todo el script
+6. Ejecutar linea por linea o todo el script
 
 ---
 
-## 🔧 Solución de Problemas
+## 🔧 Solucion de Problemas
 
 ### Error: "mongod no se reconoce como comando"
 
-**Solución:** Agregar MongoDB al PATH
+**Solucion:** Agregar MongoDB al PATH
 
 1. Buscar "Variables de entorno" en Windows
 2. Click en "Variables de entorno"
@@ -167,7 +167,7 @@ mongosh < "C:\Users\amaro\Documents\FINALDBD\nosql\queries.js"
 
 ### Error: "Failed to connect to localhost:27017"
 
-**Solución:** Iniciar el servicio MongoDB
+**Solucion:** Iniciar el servicio MongoDB
 
 ```powershell
 # Windows
@@ -179,7 +179,7 @@ mongod --dbpath C:\data\db
 
 ### Error: "Access denied" o permisos
 
-**Solución:** Ejecutar PowerShell como Administrador
+**Solucion:** Ejecutar PowerShell como Administrador
 
 1. Click derecho en PowerShell
 2. "Ejecutar como administrador"
@@ -187,21 +187,21 @@ mongod --dbpath C:\data\db
 
 ### MongoDB Compass no abre
 
-**Solución:** Descargar e instalar separadamente
+**Solucion:** Descargar e instalar separadamente
 
 https://www.mongodb.com/try/download/compass
 
 ---
 
-## ✅ Verificación Final
+## ✅ Verificacion Final
 
 Ejecutar estos comandos para verificar que todo funciona:
 
 ```powershell
-# 1. Verificar versión de mongod
+# 1. Verificar version de mongod
 mongod --version
 
-# 2. Verificar versión de mongosh
+# 2. Verificar version de mongosh
 mongosh --version
 
 # 3. Verificar servicio
@@ -213,13 +213,13 @@ mongosh
 > exit
 ```
 
-Si todos los comandos funcionan, MongoDB está correctamente instalado.
+Si todos los comandos funcionan, MongoDB esta correctamente instalado.
 
 ---
 
 ## 📚 Recursos Adicionales
 
-- **Documentación oficial:** https://docs.mongodb.com/manual/installation/
+- **Documentacion oficial:** https://docs.mongodb.com/manual/installation/
 - **MongoDB University (cursos gratis):** https://university.mongodb.com/
 - **MongoDB Compass:** https://www.mongodb.com/products/compass
 
@@ -241,4 +241,4 @@ load("nosql/collections.js")
 load("nosql/queries.js")
 ```
 
-¡Listo! Tu base de datos MongoDB de FlotIA estará creada y lista para usar. 🚀
+Listo! Tu base de datos MongoDB de FlotIA estara creada y lista para usar. 🚀

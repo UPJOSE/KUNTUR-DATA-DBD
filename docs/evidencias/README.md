@@ -1,6 +1,6 @@
 # 📸 Evidencias del Proyecto FlotIA
 
-Esta carpeta contiene todas las capturas de pantalla que demuestran la implementación exitosa del proyecto.
+Esta carpeta contiene todas las capturas de pantalla que demuestran la implementacion exitosa del proyecto.
 
 ## 📁 Estructura de Carpetas
 
@@ -18,12 +18,12 @@ evidencias/
 
 - [ ] `sql_01_database.png` - Base de datos FlotIA_DB en Object Explorer
 - [ ] `sql_02_tables.png` - Lista completa de tablas creadas
-- [ ] `sql_03_create_execution.png` - Ejecución exitosa de create_tables.sql
-- [ ] `sql_04_insert_execution.png` - Ejecución exitosa de inserts.sql
+- [ ] `sql_03_create_execution.png` - Ejecucion exitosa de create_tables.sql
+- [ ] `sql_04_insert_execution.png` - Ejecucion exitosa de inserts.sql
 - [ ] `sql_05_vista_resumen.png` - Resultado de vw_ResumenFlotaPorEmpresa
 - [ ] `sql_06_vista_costos.png` - Resultado de vw_CostosMantenimientoPorVehiculo
-- [ ] `sql_07_procedimiento.png` - Ejecución de sp_RegistrarVehiculo
-- [ ] `sql_08_indices.png` - Lista de índices creados
+- [ ] `sql_07_procedimiento.png` - Ejecucion de sp_RegistrarVehiculo
+- [ ] `sql_08_indices.png` - Lista de indices creados
 - [ ] `sql_09_datos_vehiculos.png` - Consulta SELECT de tabla Vehiculo
 - [ ] `sql_10_datos_mantenimientos.png` - Consulta SELECT de tabla Mantenimiento
 
@@ -31,24 +31,24 @@ evidencias/
 
 - [ ] `mongo_01_compass_database.png` - Base flotia_nosql en MongoDB Compass
 - [ ] `mongo_02_collections.png` - Lista de colecciones creadas
-- [ ] `mongo_03_validation_vehiculos.png` - JSON Schema de validación en vehiculos
-- [ ] `mongo_04_validation_mantenimientos.png` - JSON Schema de validación en mantenimientos
-- [ ] `mongo_05_indices.png` - Índices creados en colecciones
+- [ ] `mongo_03_validation_vehiculos.png` - JSON Schema de validacion en vehiculos
+- [ ] `mongo_04_validation_mantenimientos.png` - JSON Schema de validacion en mantenimientos
+- [ ] `mongo_05_indices.png` - Indices creados en colecciones
 - [ ] `mongo_06_query_fallas.png` - Resultado consulta fallas recurrentes
-- [ ] `mongo_07_query_costos.png` - Resultado consulta costo total por vehículo
-- [ ] `mongo_08_query_tecnicos.png` - Resultado consulta rendimiento técnicos
-- [ ] `mongo_09_query_componentes.png` - Resultado consulta componentes críticos
-- [ ] `mongo_10_datos_vehiculos.png` - Documentos de colección vehiculos
-- [ ] `mongo_11_datos_mantenimientos.png` - Documentos de colección mantenimientos
+- [ ] `mongo_07_query_costos.png` - Resultado consulta costo total por vehiculo
+- [ ] `mongo_08_query_tecnicos.png` - Resultado consulta rendimiento tecnicos
+- [ ] `mongo_09_query_componentes.png` - Resultado consulta componentes criticos
+- [ ] `mongo_10_datos_vehiculos.png` - Documentos de coleccion vehiculos
+- [ ] `mongo_11_datos_mantenimientos.png` - Documentos de coleccion mantenimientos
 - [ ] `mongo_12_embedded_pattern.png` - Ejemplo de Embedded Pattern (componentes)
 
 ### Diagramas (Carpeta: `diagramas/`)
 
-- [ ] `erd_01_completo.png` - Diagrama ERD físico completo
+- [ ] `erd_01_completo.png` - Diagrama ERD fisico completo
 - [ ] `erd_02_herramienta.png` - Captura de ERD Editor/draw.io
 - [ ] `hackolade_01_completo.png` - Diagrama Hackolade completo
 - [ ] `hackolade_02_validacion.png` - Detalle de validaciones en Hackolade
-- [ ] `hackolade_03_patrones.png` - Patrones de diseño aplicados
+- [ ] `hackolade_03_patrones.png` - Patrones de diseno aplicados
 
 ### Git/GitHub (Carpeta: `git/`)
 
@@ -58,7 +58,7 @@ evidencias/
 - [ ] `git_04_gitignore.png` - Archivo .gitignore
 - [ ] `git_05_historial.png` - Historial completo de commits
 
-## 📸 Guía para Capturar Evidencias
+## 📸 Guia para Capturar Evidencias
 
 ### SQL Server (SSMS)
 
@@ -77,7 +77,7 @@ evidencias/
 3. Capturar lista completa
 ```
 
-#### 3. Ejecución de Scripts
+#### 3. Ejecucion de Scripts
 ```
 1. Abrir create_tables.sql
 2. Ejecutar (F5)
@@ -105,7 +105,7 @@ EXEC sp_RegistrarVehiculo
     @Kilometraje = 0;
 ```
 
-#### 6. Índices
+#### 6. Indices
 ```sql
 -- Ejecutar y capturar
 SELECT 
@@ -130,17 +130,17 @@ ORDER BY t.name, i.name;
 
 #### 2. Validaciones JSON Schema
 ```
-1. Click en colección "vehiculos"
+1. Click en coleccion "vehiculos"
 2. Tab "Validation"
 3. Mostrar JSON Schema completo
 4. Capturar pantalla
 ```
 
-#### 3. Índices
+#### 3. Indices
 ```
-1. Click en colección
+1. Click en coleccion
 2. Tab "Indexes"
-3. Mostrar todos los índices
+3. Mostrar todos los indices
 4. Capturar pantalla
 ```
 
@@ -154,7 +154,7 @@ db.mantenimientos.aggregate([
   { $match: { total: { $gte: 3 } } }
 ])
 
-// Costo total por vehículo
+// Costo total por vehiculo
 db.mantenimientos.aggregate([
   { $group: { _id: "$vehiculo_id", totalGastado: { $sum: "$costo" } } }
 ])
@@ -162,7 +162,7 @@ db.mantenimientos.aggregate([
 
 #### 5. Documentos
 ```
-1. Click en colección "vehiculos"
+1. Click en coleccion "vehiculos"
 2. Tab "Documents"
 3. Expandir un documento para mostrar estructura
 4. Capturar mostrando componentes embebidos
@@ -175,7 +175,7 @@ db.mantenimientos.aggregate([
 1. Abrir diagrama completo
 2. Zoom para que se vea todo
 3. Capturar pantalla completa
-4. Capturar también la herramienta con el diagrama
+4. Capturar tambien la herramienta con el diagrama
 ```
 
 #### Hackolade
@@ -183,7 +183,7 @@ db.mantenimientos.aggregate([
 1. Abrir modelo MongoDB
 2. Vista completa del diagrama
 3. Capturar pantalla
-4. Capturar detalle de validaciones de una colección
+4. Capturar detalle de validaciones de una coleccion
 5. Capturar propiedades mostrando patrones aplicados
 ```
 
@@ -206,10 +206,10 @@ git log --oneline -20
 5. Capturar archivo .gitignore
 ```
 
-## 🎨 Estándares de Calidad
+## 🎨 Estandares de Calidad
 
-### Resolución
-- Mínimo: 1280x720 (HD)
+### Resolucion
+- Minimo: 1280x720 (HD)
 - Recomendado: 1920x1080 (Full HD)
 - Formato: PNG (mejor calidad) o JPG
 
@@ -217,7 +217,7 @@ git log --oneline -20
 - Imagen clara y legible
 - Texto visible sin zoom
 - Fecha/hora visible cuando sea relevante
-- Sin información sensible (contraseñas, IPs privadas)
+- Sin informacion sensible (contrasenas, IPs privadas)
 
 ### Nomenclatura
 ```
@@ -230,57 +230,57 @@ erd_01_completo.png
 git_01_commits.png
 ```
 
-## 📝 Descripción de Evidencias
+## 📝 Descripcion de Evidencias
 
 Crear archivo `DESCRIPCION_EVIDENCIAS.txt` con:
 
 ```
 SQL_01_DATABASE.PNG
-Descripción: Base de datos FlotIA_DB creada en SQL Server
+Descripcion: Base de datos FlotIA_DB creada en SQL Server
 Muestra: Object Explorer con la base de datos expandida
 Fecha: 2024-03-XX
 
 SQL_02_TABLES.PNG
-Descripción: Todas las tablas del modelo relacional
+Descripcion: Todas las tablas del modelo relacional
 Muestra: 8 tablas (Empresa, Vehiculo, Tecnico, Componente, Mantenimiento, PlanMantenimiento, Usuario, Reporte)
 Fecha: 2024-03-XX
 
 [... continuar para todas las evidencias ...]
 ```
 
-## ✅ Verificación Final
+## ✅ Verificacion Final
 
 Antes de entregar, verificar:
 
-- [ ] Todas las evidencias están capturadas
-- [ ] Imágenes son claras y legibles
+- [ ] Todas las evidencias estan capturadas
+- [ ] Imagenes son claras y legibles
 - [ ] Nomenclatura es consistente
-- [ ] Carpetas están organizadas
-- [ ] No hay información sensible
-- [ ] Archivo de descripción está completo
-- [ ] Evidencias coinciden con la documentación
+- [ ] Carpetas estan organizadas
+- [ ] No hay informacion sensible
+- [ ] Archivo de descripcion esta completo
+- [ ] Evidencias coinciden con la documentacion
 
 ## 🎥 Evidencias en Video
 
-Además de las capturas, los videos deben mostrar:
+Ademas de las capturas, los videos deben mostrar:
 
-### Video de Exposición
-- Ejecución en vivo de scripts SQL
-- Ejecución en vivo de scripts MongoDB
-- Navegación por diagramas
-- Demostración de consultas
+### Video de Exposicion
+- Ejecucion en vivo de scripts SQL
+- Ejecucion en vivo de scripts MongoDB
+- Navegacion por diagramas
+- Demostracion de consultas
 
 ### Video About-the-Team
-- Presentación del equipo
+- Presentacion del equipo
 - Reflexiones sobre el proyecto
 
 ## 📞 Notas Importantes
 
-1. **No editar evidencias** - Deben ser capturas reales sin modificación
+1. **No editar evidencias** - Deben ser capturas reales sin modificacion
 2. **Incluir contexto** - Mostrar barras de herramientas, fechas, etc.
 3. **Calidad sobre cantidad** - Mejor pocas evidencias claras que muchas borrosas
-4. **Organización** - Mantener estructura de carpetas consistente
+4. **Organizacion** - Mantener estructura de carpetas consistente
 
 ---
 
-**Última actualización:** Marzo 2024
+**Ultima actualizacion:** Marzo 2024
