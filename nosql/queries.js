@@ -1,25 +1,26 @@
 // =====================================================================
 // PROYECTO: FlotIA - Gestión Inteligente de Flotas
 // CONSULTAS ANALÍTICAS - MongoDB
-// Mínimo 2 consultas por integrante (8 consultas obligatorias)
+// EQUIPO: KunturData
 // =====================================================================
 
 use flotia_nosql
 
 print("=====================================================================");
 print("CONSULTAS ANALÍTICAS - FLOTIA");
+print("EQUIPO: KunturData");
 print("=====================================================================");
 print("");
 
 // =====================================================================
-// INTEGRANTE 1 - CONSULTAS
+// INTEGRANTE: JOSE AMARO - 5 CONSULTAS
 // =====================================================================
 
-print("--- INTEGRANTE 1 ---");
+print("--- INTEGRANTE: JOSE AMARO ---");
 print("");
 
-// Consulta 1.1: Fallas recurrentes (>= 3 ocurrencias)
-print("📊 Consulta 1.1: Análisis de Fallas Recurrentes");
+// Consulta 1: Fallas recurrentes (>= 3 ocurrencias)
+print("📊 Consulta 1 (Jose Amaro): Análisis de Fallas Recurrentes");
 print("Descripción: Identificar fallas que se repiten 3 o más veces");
 print("");
 
@@ -60,8 +61,8 @@ db.mantenimientos.aggregate([
 
 print("");
 
-// Consulta 1.2: Costo total de mantenimiento por vehículo
-print("📊 Consulta 1.2: Costo Total de Mantenimiento por Vehículo");
+// Consulta 2: Costo total de mantenimiento por vehículo
+print("📊 Consulta 2 (Jose Amaro): Costo Total de Mantenimiento por Vehículo");
 print("Descripción: Calcular el gasto total en mantenimiento de cada vehículo");
 print("");
 
@@ -105,15 +106,8 @@ db.mantenimientos.aggregate([
 
 print("");
 
-// =====================================================================
-// INTEGRANTE 2 - CONSULTAS
-// =====================================================================
-
-print("--- INTEGRANTE 2 ---");
-print("");
-
-// Consulta 2.1: Vehículos con mayor frecuencia de mantenimiento correctivo
-print("📊 Consulta 2.1: Vehículos con Mayor Frecuencia de Mantenimiento Correctivo");
+// Consulta 3: Vehículos con mayor frecuencia de mantenimiento correctivo
+print("📊 Consulta 3 (Jose Amaro): Vehículos con Mayor Frecuencia de Mantenimiento Correctivo");
 print("Descripción: Identificar vehículos problemáticos con muchos mantenimientos correctivos");
 print("");
 
@@ -164,8 +158,8 @@ db.mantenimientos.aggregate([
 
 print("");
 
-// Consulta 2.2: Análisis de costos por categoría de falla
-print("📊 Consulta 2.2: Análisis de Costos por Categoría de Falla");
+// Consulta 4: Análisis de costos por categoría de falla
+print("📊 Consulta 4 (Jose Amaro): Análisis de Costos por Categoría de Falla");
 print("Descripción: Agrupar costos de mantenimiento por categoría de falla");
 print("");
 
@@ -203,15 +197,8 @@ db.mantenimientos.aggregate([
 
 print("");
 
-// =====================================================================
-// INTEGRANTE 3 - CONSULTAS
-// =====================================================================
-
-print("--- INTEGRANTE 3 ---");
-print("");
-
-// Consulta 3.1: Rendimiento de técnicos (cantidad y calidad)
-print("📊 Consulta 3.1: Rendimiento de Técnicos");
+// Consulta 5: Rendimiento de técnicos
+print("📊 Consulta 5 (Jose Amaro): Rendimiento de Técnicos");
 print("Descripción: Evaluar desempeño de técnicos por cantidad de trabajos y calificación");
 print("");
 
@@ -254,8 +241,15 @@ db.mantenimientos.aggregate([
 
 print("");
 
-// Consulta 3.2: Vehículos por estado operativo y empresa
-print("📊 Consulta 3.2: Distribución de Vehículos por Estado Operativo y Empresa");
+// =====================================================================
+// INTEGRANTE: EDUARDO YURIVILCA - 5 CONSULTAS
+// =====================================================================
+
+print("--- INTEGRANTE: EDUARDO YURIVILCA ---");
+print("");
+
+// Consulta 6: Vehículos por estado operativo y empresa
+print("📊 Consulta 6 (Eduardo Yurivilca): Distribución de Vehículos por Estado Operativo y Empresa");
 print("Descripción: Análisis de flota por empresa y estado operativo");
 print("");
 
@@ -308,15 +302,8 @@ db.vehiculos.aggregate([
 
 print("");
 
-// =====================================================================
-// INTEGRANTE 4 - CONSULTAS
-// =====================================================================
-
-print("--- INTEGRANTE 4 ---");
-print("");
-
-// Consulta 4.1: Componentes en estado crítico o malo
-print("📊 Consulta 4.1: Componentes en Estado Crítico o Malo");
+// Consulta 7: Componentes en estado crítico o malo
+print("📊 Consulta 7 (Eduardo Yurivilca): Componentes en Estado Crítico o Malo");
 print("Descripción: Identificar componentes que requieren atención urgente");
 print("");
 
@@ -361,8 +348,8 @@ db.vehiculos.aggregate([
 
 print("");
 
-// Consulta 4.2: Análisis de mantenimientos por mes (tendencia temporal)
-print("📊 Consulta 4.2: Análisis de Mantenimientos por Mes");
+// Consulta 8: Análisis de mantenimientos por mes
+print("📊 Consulta 8 (Eduardo Yurivilca): Análisis de Mantenimientos por Mes");
 print("Descripción: Tendencia de mantenimientos y costos por mes");
 print("");
 
@@ -418,15 +405,8 @@ db.mantenimientos.aggregate([
 
 print("");
 
-// =====================================================================
-// CONSULTAS ADICIONALES AVANZADAS
-// =====================================================================
-
-print("--- CONSULTAS AVANZADAS ---");
-print("");
-
-// Consulta Avanzada 1: Vehículos con mayor ROI negativo (costo vs valor)
-print("📊 Consulta Avanzada 1: Vehículos con Mayor Costo de Mantenimiento vs Antigüedad");
+// Consulta 9: Vehículos con mayor ROI negativo
+print("📊 Consulta 9 (Eduardo Yurivilca): Vehículos con Mayor Costo vs Antigüedad");
 print("Descripción: Identificar vehículos que generan más gastos en relación a su antigüedad");
 print("");
 
@@ -494,8 +474,8 @@ db.vehiculos.aggregate([
 
 print("");
 
-// Consulta Avanzada 2: Alertas pendientes por prioridad
-print("📊 Consulta Avanzada 2: Resumen de Alertas Pendientes por Prioridad");
+// Consulta 10: Alertas pendientes por prioridad
+print("📊 Consulta 10 (Eduardo Yurivilca): Resumen de Alertas Pendientes por Prioridad");
 print("Descripción: Dashboard de alertas predictivas para acción inmediata");
 print("");
 
@@ -550,10 +530,15 @@ db.alertas_predictivas.aggregate([
 print("");
 
 // =====================================================================
-// ESTADÍSTICAS GENERALES
+// CONSULTAS ADICIONALES (SIN ASIGNACIÓN DE INTEGRANTE)
 // =====================================================================
 
-print("--- ESTADÍSTICAS GENERALES DEL SISTEMA ---");
+print("--- CONSULTAS ADICIONALES ---");
+print("");
+
+// Consulta Adicional 1: Estadísticas generales del sistema
+print("📊 Consulta Adicional 1: Estadísticas Generales del Sistema");
+print("Descripción: Resumen completo de documentos y costos del sistema");
 print("");
 
 print("📈 Total de documentos por colección:");
@@ -583,6 +568,48 @@ if (statsResult.length > 0) {
   print("- Costo máximo: S/", statsResult[0].costo_maximo.toFixed(2));
   print("- Costo mínimo: S/", statsResult[0].costo_minimo.toFixed(2));
 }
+
+print("");
+
+// Consulta Adicional 2: Empresas con más vehículos
+print("📊 Consulta Adicional 2: Ranking de Empresas por Cantidad de Vehículos");
+print("Descripción: Empresas ordenadas por tamaño de flota");
+print("");
+
+db.vehiculos.aggregate([
+  {
+    $lookup: {
+      from: "empresas",
+      localField: "empresa_id",
+      foreignField: "_id",
+      as: "empresa"
+    }
+  },
+  {
+    $unwind: "$empresa"
+  },
+  {
+    $group: {
+      _id: "$empresa._id",
+      razon_social: { $first: "$empresa.razon_social" },
+      ruc: { $first: "$empresa.ruc" },
+      sector: { $first: "$empresa.sector" },
+      total_vehiculos: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      razon_social: 1,
+      ruc: 1,
+      sector: 1,
+      total_vehiculos: 1
+    }
+  },
+  {
+    $sort: { total_vehiculos: -1 }
+  }
+]).forEach(printjson);
 
 print("");
 print("✅ Todas las consultas ejecutadas exitosamente");
